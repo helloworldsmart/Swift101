@@ -210,3 +210,137 @@ case (let string, _):
 }
 
 //-Types
+// -Int
+// -Double
+// -String
+// -Bool
+// set emumeration
+
+//-Usage String
+let emptyStrin = "";
+
+let anotherEmptyString = String();
+
+var composingString = "Hello";
+composingString += " world";
+
+for character in "hello" {
+  print(character);
+}
+
+print(composingString.count);
+
+"Cafe".uppercased();
+"Cafe".lowercased();
+
+let string1: String = "Hello";
+let string2: String = "Hel" + "lo";
+if string1 == string2 {
+  print("The string are equal.");
+}
+
+let café = "Café";
+let cafe = "Cafe\u{301}";
+
+if café == cafe {
+  print("The string are equal.");
+}
+
+if "Hello".hasPrefix("H") {
+  print("String begins with an H");
+}
+
+if "Hello".hasSuffix("llo") {
+  print("String ends in llo");
+}
+
+// - string interpolation
+let name = "Fred";
+let age = 21;
+let line = "My name is \(name). I am \(age) years old."
+
+//-Set
+var setOfStrings = Set<String>();
+
+var fruitSet: Set = ["apple", "orange", "orange", "banana"];
+fruitSet.count;
+
+if fruitSet.isEmpty {
+  print("My set is empty!");
+}
+fruitSet.insert("pear");
+fruitSet.remove("apple");
+
+// let index = fruitSet.index(of: "pear");
+let index = fruitSet.firstIndex(of: "pear");
+fruitSet[index!];
+
+for fruit in fruitSet {
+  let fruitPlural = fruit + "s";
+  print("You know what's testy? \(fruitPlural.uppercased())")
+}
+
+//-Enumeration
+enum FutureiPad {
+  case iPadSuperPro
+  case iPadTotallyPro
+  case iPadLudicrous
+}
+
+var nextiPad = FutureiPad.iPadSuperPro;
+nextiPad = .iPadTotallyPro;
+
+switch nextiPad {
+case .iPadSuperPro:
+  print("Too big!");
+  break;
+case .iPadTotallyPro:
+  print("Too small!");
+  break;
+case .iPadLudicrous:
+  print("Just right!");
+  break;
+}
+// -associated value
+enum BasicWeapon {
+  case laser
+  case missiles
+}
+
+enum AdvancedWeapon {
+  case laser(powerLevel: Int);
+  case missles(range: Int);
+}
+
+let spaceLaser = AdvancedWeapon.laser(powerLevel: 5);
+
+switch spaceLaser {
+case .laser(powerLevel: 0...10):
+  print("It's a laser with power from 0 to 10!");
+case .laser:
+  print("It's a laser!");
+case .missles(let range):
+  print("It's a missles with range \(range)");
+}
+
+enum Response: String {
+  case hello = "Hi";
+  case goodbye = "See you next time";
+  case thankYou = "No worries";
+}
+
+let hello = Response.hello;
+hello.rawValue
+
+enum Nucleobase: String {
+  case cytosine, guanine, adenine, thymine
+}
+Nucleobase.adenine.rawValue;
+
+enum Element: Int {
+  case hydrogen = 1, helium, lithium, beryllium, boron, carbon, nitrogen
+}
+
+Element.lithium.rawValue;
+
+//-Type Safe
