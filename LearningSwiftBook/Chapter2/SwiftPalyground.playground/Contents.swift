@@ -344,3 +344,81 @@ enum Element: Int {
 Element.lithium.rawValue;
 
 //-Type Safe
+
+let almostMeanOfLife = String(Int(41.787878)); // "41"
+
+//-Optional
+var anOptionalInteger: Int? = nil;
+anOptionalInteger = 42
+
+var aNonOptionalInteger = 42;
+//aNonOptionalInteger = nil; // 'nil' cannot be assigned to type 'Int'
+
+if anOptionalInteger != nil {
+  print("It has a value!")
+} else {
+  print("It has no value!")
+}
+
+var implicitlyUnwrappedOptionInteger: Int!
+implicitlyUnwrappedOptionInteger = 1;
+1 + implicitlyUnwrappedOptionInteger;
+
+var conditionalString: String? = "a string"
+if let theString = conditionalString {
+  print("The string is '\(theString)'");
+} else {
+  print("The string is nil");
+}
+
+// optional chaining
+var optionalArray: [Int]? = [1, 2, 3, 4];
+var count = optionalArray?.count;
+
+optionalArray = nil;
+count = optionalArray?.count;
+
+let optionalDict: [String: [Int]]? = ["array":[1, 2, 3, 4]];
+count = optionalDict?["array"]?.count;
+
+// nil-coalescing
+var values = ["name": "fred"];
+var personsAge = "unspecified";
+
+if let unwrappedValue = values["age"] {
+  personsAge = unwrappedValue;
+}
+
+print("They are \(personsAge) years old");
+
+personsAge = values["age"] ?? "unspecified"
+print("The are \(personsAge) years old");
+
+personsAge = values["age", default: "unspecified"];
+print("They are \(personsAge) years old");
+
+// Type Casting
+
+let person: [String: Any] = ["name": "Jane", "Age": 26, "Wears glasset": true]
+
+var anything: Any = "hello";
+anything = 3;
+anything = false;
+anything = [1, 2, 3, 4];
+
+let possibleString = person["name"];
+if possibleString is String {
+  print("\(possibleString!) is a string!");
+}
+
+if let name = person["name"] {
+  var maybeString = name as? String;
+  
+  var maybeInt = name as? Int;
+}
+
+if let name = person["name"] {
+  var maybeString = name as! String;
+}
+
+// -function closure
