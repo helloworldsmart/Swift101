@@ -422,3 +422,64 @@ if let name = person["name"] {
 }
 
 // -function closure
+func sayHello() {
+  print("Hello");
+}
+sayHello();
+
+func usefulNumber() -> Int {
+  return 123;
+}
+
+let anUsefulNumber = usefulNumber();
+
+func addNumbers(firstValue: Int, secondValue: Int) -> Int {
+  return firstValue + secondValue;
+}
+let result = addNumbers(firstValue: 1, secondValue: 2);
+
+func processNumber(firstValue: Int, secondValue: Int) -> (doubled: Int,quadrupled: Int) {
+  return (firstValue * 2, secondValue * 4);
+}
+
+processNumber(firstValue: 2, secondValue: 4).1;
+processNumber(firstValue: 2, secondValue: 4).quadrupled;
+
+func subtractNumbers(_ num1: Int, _ num2: Int) -> Int {
+  return num1 - num2;
+}
+subtractNumbers(5, 3);
+
+func add(firstNumber num1: Int, toSecondNumber num2: Int) -> Int {
+  return num1 + num2;
+}
+add(firstNumber: 2, toSecondNumber: 3);
+
+func multiplyNumber2(firstNumber: Int, multiplier: Int = 2) -> Int {
+  return firstNumber * multiplier;
+}
+
+multiplyNumber2(firstNumber: 2);
+
+//- variadic parameter
+func sumNumbers2(numbers: Int...) -> Int {
+  var total = 0;
+  for number in numbers {
+    total += number
+  }
+  return total;
+}
+sumNumbers2(numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+//- inout
+func swapValues(firstValue: inout Int, secondValue: inout Int) {
+  (firstValue, secondValue) = (secondValue, firstValue);
+}
+
+var swap1 = 2;
+var swap2 = 3;
+
+swapValues(firstValue: &swap1, secondValue: &swap2)
+
+swap1;
+swap2;
