@@ -392,3 +392,226 @@ stringTree.addChild(value: "Yes")
 stringTree.addChild(value: "Internets")
 
 // -Struct
+struct Point {
+  var x: Int
+  var y: Int
+}
+
+let p = Point(x: 2, y: 3)
+
+struct NumberStruct {
+  var number: Int
+}
+
+class NumberClass {
+  var number: Int
+  
+  init(_ number: Int) {
+    self.number = number
+  }
+}
+
+var numberClass1 = NumberClass(3)
+var numberClass2 = numberClass1
+numberClass1.number
+numberClass2.number
+
+var numberStruct1 = NumberStruct(number: 3)
+var numberStruct2 = numberStruct1
+numberStruct1.number
+numberStruct2.number
+
+numberStruct2.number = 4
+numberStruct1.number
+
+numberClass2.number = 4
+numberClass1.number
+
+// Error
+enum BankError: Error {
+  case notEnoughFunds
+  
+  case cannotBeginWithNegativeFounds
+  
+  case cannotMakeNegativeTransaction(amount: Float)
+}
+
+class BankAccount {
+  private (set) var balance: Float = 0.0
+  
+  init(amount: Float) throws {
+    guard amount > 0 else {
+      throw BankError.cannotBeginWithNegativeFounds
+    }
+    balance = amount
+  }
+  
+  func deposit(amount: Float) throws {
+    guard amount > 0 else {
+      throw BankError.cannotMakeNegativeTransaction(amount: amount)
+    }
+    balance += amount
+  }
+  
+  func withdraw(amount: Float) throws {
+    guard amount > 0 else {
+      throw BankError.cannotMakeNegativeTransaction(amount: amount)
+    }
+    
+    guard balance >= amount else {
+      throw BankError.notEnoughFunds
+    }
+    balance -= amount
+    
+  }
+}
+
+do {
+  let vacationFund = try BankAccount(amount: 5)
+  
+  try vacationFund.deposit(amount: 5)
+  
+  try vacationFund.withdraw(amount: 11)
+} catch let error as BankError {
+  switch (error) {
+  case .notEnoughFunds:
+    print("Not enough funds in account!")
+  case .cannotBeginWithNegativeFounds:
+    print("Tried to start an account with negative money!")
+  case .cannotMakeNegativeTransaction(let amount):
+    print("Tried to do a transaction with a negative amount \(amount) !")
+  }
+} catch let error {
+  print("Ooops \(error)")
+}
+
+// Good
+let secretBankAccountOrNot = try? BankAccount(amount: -50)
+
+// -Memory Management
+// reference counting
+// retain count
+// retain cycles
+// weak reference
+// unowned reference
+class Human {
+  weak var bestFriend: Dog?
+  
+  var name: String
+  
+  init(name: String) {
+    self.name = name
+  }
+  
+  deinit {
+    print("\(name) is being removed")
+  }
+}
+
+class Dog {
+  weak var friendBeast: Human?
+  
+  var name: String
+  
+  init(name: String) {
+    self.name = name
+  }
+  
+  deinit {
+    print("\(name) is being removed")
+  }
+}
+
+var turner: Human? = Human(name: "Turner")
+var hooch: Dog? = Dog(name: "Hooch")
+turner = nil
+hooch = nil
+
+turner?.bestFriend = hooch
+hooch?.friendBeast = turner
+
+turner = nil
+hooch = nil
+
+class Person {
+  var name: String
+  var passport: Passport?
+  
+  init(name: String) {
+    self.name = name
+  }
+  
+  deinit {
+    print("\(name) is being removed")
+  }
+}
+
+class Passport {
+  var number: Int
+  unowned let person: Person
+  
+  init(number: Int, person: Person) {
+    self.number = number
+    self.person = person
+  }
+  deinit {
+    print("Passport \(number) is being removed")
+  }
+}
+
+var viktor: Person? = Person(name: "Viktor Navorski")
+viktor!.passport = Passport(number: 1234567890, person: viktor!)
+
+viktor?.passport?.number
+
+viktor = nil
+
+// -Design pattern
+// model-view-controller(MVC)
+// delegation pattern
+// notification pattern
+
+// - Model-View-Controller
+// - Model - Data Storage - Data, Array, Dictionary
+// - View - UI - NSButton and UITextField
+// - Controller - business logic - NSKeyedArchiver
+
+// - Delegation
+protocol HouseSecurityDelegate {
+  func handleIntruder()
+}
+
+class House {
+  var delegate: HouseSecurityDelegate?
+  
+  func burglarDetected() {
+    delegate?.handleIntruder()
+  }
+}
+
+class GuardDog: HouseSecurityDelegate {
+  func handleIntruder() {
+    print("Releasing the hounds")
+  }
+}
+
+let myHouse = House()
+myHouse.burglarDetected()
+
+let theHounds = GuardDog()
+myHouse.delegate = theHounds
+myHouse.burglarDetected()
+
+// Library
+// - Foundation / NSNotificationCenter, JSONSerialization
+// - Cocoa
+// - Cocoa Touch / UIKit
+
+// - event-driven-programming
+// - Application and delegate
+// - View
+// - UIViewController
+// - Storyboard and nib / segues , scene
+
+// Swift Package
+// TODO:
