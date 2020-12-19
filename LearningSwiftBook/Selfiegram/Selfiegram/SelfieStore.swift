@@ -93,7 +93,8 @@ final class SelfieStore {
     try delete(id: selfie.id)
   }
   
-  func delete(id: UUID) throws {
+  // Book issue: add private
+  private func delete(id: UUID) throws {
 //    throw SelfieStoreError.cannotSaveImage(nil)
     let selfieDataFileName = "\(id.uuidString).json"
     let imageFileName = "\(id.uuidString)-image.jpg"
