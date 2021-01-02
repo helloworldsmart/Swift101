@@ -44,6 +44,9 @@ class SelfieListViewController: UITableViewController {
 //        let controllers = split.viewControllers
 //        detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 //    }
+    let addSelfieButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createNewSelfie))
+    
+    navigationItem.rightBarButtonItem = addSelfieButton
   }
 
 
@@ -60,6 +63,24 @@ class SelfieListViewController: UITableViewController {
     alert.addAction(action)
     
     self.present(alert, animated: true, completion: nil)
+  }
+  
+  @objc func createNewSelfie() {
+    let imagePicker = UIImagePickerController()
+    
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      imagePicker.sourceType = .camera
+      
+      if UIImagePickerController.isCameraDeviceAvailable(.front) {
+        imagePicker.cameraDevice = .front
+      }
+    } else {
+      imagePicker.sourceType = .photoLibrary
+    }
+    
+    imagePicker.delegate = self
+    
+    self.present(imagePicker, animated: true, completion: nil)
   }
 
 //  @objc
@@ -134,5 +155,38 @@ class SelfieListViewController: UITableViewController {
   }
 
 
+}
+
+extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage ?? info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+      let message = "Couldn't get a picture from the image picker!"
+      showError(message: message)
+      return
+    }
+    
+    self.newSelfieTaken(image:image)
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  func newSelfieTaken(image: UIImage) {
+    let newSelfie = Selfie(title: "New Selfie")
+    
+    newSelfie.image = image
+    
+    do {
+      try SelfieStore.shared.save(selfie: newSelfie)
+    } catch let error {
+      showError(message: "Can't save photo: \(error)")
+      return
+    }
+    
+    selfies.insert(newSelfie, at: 0)
+    tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+  }
 }
 
