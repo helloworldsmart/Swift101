@@ -111,9 +111,18 @@ class ApiController {
 //    }
 //  }
   // MARK: 3. Fake data
+//  func currentWeather(city: String) -> Observable<Weather> {
+//    return Observable.just(Weather(cityName: city, temperature: 20, humidity: 90, icon: iconNameToChar(icon: "01d"))
+//    )
+//  }
+  
+  // MARK: 8. 開使串接Api
   func currentWeather(city: String) -> Observable<Weather> {
-    return Observable.just(Weather(cityName: city, temperature: 20, humidity: 90, icon: iconNameToChar(icon: "01d"))
-    )
+    return buildRequest(pathComponent: "weather", params: [("q", city)])
+      .map { (data) in
+        let decoder = JSONDecoder()
+        return try decoder.decode(Weather.self, from: data)
+      }
   }
 
   // MARK: - Private Methods

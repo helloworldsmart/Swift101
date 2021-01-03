@@ -36,6 +36,9 @@ class ViewController: UIViewController {
   @IBOutlet private var humidityLabel: UILabel!
   @IBOutlet private var iconLabel: UILabel!
   @IBOutlet private var cityNameLabel: UILabel!
+  
+  // MARK: 5.
+  private let bag = DisposeBag()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,6 +52,15 @@ class ViewController: UIViewController {
         self.humidityLabel.text = "\(data.humidity)%"
         self.cityNameLabel.text = data.cityName
       })
+      .disposed(by: bag)
+    // MARK: 6.
+    // MARK: 7. orEmpty !
+    searchCityName.rx.text.orEmpty
+      .filter { !$0.isEmpty }
+      .flatMap { text in
+        return ApiController.shared.currentWeather(city: text)
+          .catchErrorJustReturn(ApiController.Weather.empty)
+    }
 
     style()
   }
