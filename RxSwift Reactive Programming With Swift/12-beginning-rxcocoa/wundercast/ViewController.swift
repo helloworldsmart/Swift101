@@ -65,29 +65,55 @@ class ViewController: UIViewController {
 //    }
     
     // MARK: 9. Using binding observables to display data
-    let search = searchCityName.rx.text.orEmpty
+//    let search = searchCityName.rx.text.orEmpty
+//      .filter { !$0.isEmpty }
+//      .flatMapLatest { text in
+//        return ApiController.shared.currentWeather(city: text)
+//          .catchErrorJustReturn(ApiController.Weather.empty)
+//      }
+//      .share(replay: 1)
+//      .observeOn(MainScheduler.asyncInstance)
+//
+//    search.map { "\($0.temperature)º C" }
+//      .bind(to: tempLabel.rx.text)
+//      .disposed(by: bag)
+//
+//    search.map { $0.icon }
+//      .bind(to: iconLabel.rx.text)
+//      .disposed(by: bag)
+//
+//    search.map { "\($0.humidity)%" }
+//      .bind(to: humidityLabel.rx.text)
+//      .disposed(by: bag)
+//
+//    search.map { $0.cityName }
+//      .bind(to: cityNameLabel.rx.text)
+//      .disposed(by: bag)
+    
+    // MARK: 10.
+    let search = searchCityName.rx.controlEvent(.editingDidEndOnExit)
+      .map { self.searchCityName.text ?? "" }
       .filter { !$0.isEmpty }
       .flatMapLatest { text in
         return ApiController.shared.currentWeather(city: text)
           .catchErrorJustReturn(ApiController.Weather.empty)
       }
-      .share(replay: 1)
-      .observeOn(MainScheduler.asyncInstance)
+      .asDriver(onErrorJustReturn: ApiController.Weather.empty)
     
-    search.map { "\($0.temperature)º C" }
-      .bind(to: tempLabel.rx.text)
+    search.map { "\($0.temperature)° C" }
+      .drive(tempLabel.rx.text)
       .disposed(by: bag)
 
     search.map { $0.icon }
-      .bind(to: iconLabel.rx.text)
+      .drive(iconLabel.rx.text)
       .disposed(by: bag)
-    
+
     search.map { "\($0.humidity)%" }
-      .bind(to: humidityLabel.rx.text)
+      .drive(humidityLabel.rx.text)
       .disposed(by: bag)
-    
+
     search.map { $0.cityName }
-      .bind(to: cityNameLabel.rx.text)
+      .drive(cityNameLabel.rx.text)
       .disposed(by: bag)
     
   }
