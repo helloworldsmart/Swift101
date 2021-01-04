@@ -42,6 +42,8 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    style()
     // Do any additional setup after loading the view, typically from a nib.
     // MARK: 4.
     ApiController.shared.currentWeather(city: "RxSwift")
@@ -55,14 +57,39 @@ class ViewController: UIViewController {
       .disposed(by: bag)
     // MARK: 6.
     // MARK: 7. orEmpty !
-    searchCityName.rx.text.orEmpty
+//    searchCityName.rx.text.orEmpty
+//      .filter { !$0.isEmpty }
+//      .flatMap { text in
+//        return ApiController.shared.currentWeather(city: text)
+//          .catchErrorJustReturn(ApiController.Weather.empty)
+//    }
+    
+    // MARK: 9. Using binding observables to display data
+    let search = searchCityName.rx.text.orEmpty
       .filter { !$0.isEmpty }
-      .flatMap { text in
+      .flatMapLatest { text in
         return ApiController.shared.currentWeather(city: text)
           .catchErrorJustReturn(ApiController.Weather.empty)
-    }
+      }
+      .share(replay: 1)
+      .observeOn(MainScheduler.asyncInstance)
+    
+    search.map { "\($0.temperature)º C" }
+      .bind(to: tempLabel.rx.text)
+      .disposed(by: bag)
 
-    style()
+    search.map { $0.icon }
+      .bind(to: iconLabel.rx.text)
+      .disposed(by: bag)
+    
+    search.map { "\($0.humidity)%" }
+      .bind(to: humidityLabel.rx.text)
+      .disposed(by: bag)
+    
+    search.map { $0.cityName }
+      .bind(to: cityNameLabel.rx.text)
+      .disposed(by: bag)
+    
   }
 
   override func viewDidAppear(_ animated: Bool) {
