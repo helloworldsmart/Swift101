@@ -13,7 +13,7 @@ int main (int argc, char * argv[])
 
         for ( n = 1; n <= 20; ++n ) {
             triangularNumber += n;
-            NSLog(@"%2i          %3i", n, triangularNumber);
+            NSLog(@"%-2i          %3i", n, triangularNumber);
         }
     }
     return 0;
