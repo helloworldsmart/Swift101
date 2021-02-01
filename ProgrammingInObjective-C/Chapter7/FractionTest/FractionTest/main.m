@@ -35,6 +35,25 @@ int main(int argc, const char * argv[]) {
     [aFraction setTo:1 over:3];
     [aFraction print];
     
+    // MARK: -
+    Fraction *bFraction = [[Fraction alloc] init];
+    Fraction *cFraction = [[Fraction alloc] init];
+    
+    // Set two fractions to 1/4 and 1/2 and add them together
+    
+    [bFraction setTo: 1 over: 4];
+    [cFraction setTo: 1 over: 2];
+    
+    // Print the results
+    
+    [bFraction print];
+    NSLog(@"+");
+    [cFraction print];
+    NSLog(@"=");
+    
+    [bFraction add: cFraction];
+    [bFraction print];
+    
   }
   return 0;
 }
