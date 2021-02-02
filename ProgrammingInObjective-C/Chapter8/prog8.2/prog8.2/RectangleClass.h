@@ -5,8 +5,7 @@
 //  Created by Michael on 2021/2/2.
 //
 
-// TODO: Fuck bug: Cannot find interface declaration for 'NSObject', superclass of 'RectangleClass'
-// Class 'RectangleClass' defined without specifying a base class
+#import <Foundation/Foundation.h>
 
 @interface RectangleClass : NSObject
 @property int width, height;
