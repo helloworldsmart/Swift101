@@ -15,8 +15,11 @@
 
 -(void)    print;
 -(void)    setTo: (int) n over: (int) d;
--(Fraction *)    add: (Fraction *) f;
 -(void)    reduce;
 -(double)  convertToNum;
+-(Fraction *)    add: (Fraction *) f;
+-(Fraction *)    subtract: (Fraction *) f;
+-(Fraction *)    multiply: (Fraction *) f;
+-(Fraction *)    divide: (Fraction *) f;
 
 @end

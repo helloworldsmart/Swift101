@@ -48,6 +48,43 @@
   return result;
 }
 
+-(Fraction *) subtract: (Fraction *) f
+{
+  Fraction *result = [[Fraction alloc] init];
+  
+  result.numerator = numerator * f.denominator - denominator * f.numerator;
+  result.denominator = denominator * f.denominator;
+  
+  [self reduce];
+  
+  return result;
+}
+
+// TODO:-
+-(Fraction *) multiply: (Fraction *) f
+{
+  Fraction *result = [[Fraction alloc] init];
+  
+  result.numerator = (numerator * f.denominator) * (denominator * f.numerator);
+  result.denominator = denominator * f.denominator;
+  
+  [self reduce];
+  
+  return result;
+}
+
+// TODO:-
+-(Fraction *) divide: (Fraction *) f
+{
+  Fraction *result = [[Fraction alloc] init];
+  
+  result.numerator = (numerator * f.denominator) / (denominator * f.numerator);
+  
+  [self reduce];
+  
+  return result;
+}
+
 // TODO:
 -(void) reduce
 {
