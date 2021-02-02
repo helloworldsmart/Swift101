@@ -13,6 +13,8 @@ int main(int argc, const char * argv[]) {
     Fraction *aFraction = [[Fraction alloc] init];
     Fraction *bFraction = [[Fraction alloc] init];
     
+    Fraction *resultFraction;
+    
     [aFraction setTo: 1 over: 4];
     [bFraction setTo: 1 over: 2];
     
@@ -21,10 +23,8 @@ int main(int argc, const char * argv[]) {
     [bFraction print];
     NSLog(@"=");
     
-    [aFraction add: bFraction];
-    
-    [aFraction reduce];
-    [aFraction print];
+    resultFraction = [aFraction add: bFraction];
+    [resultFraction print];
   }
   return 0;
 }

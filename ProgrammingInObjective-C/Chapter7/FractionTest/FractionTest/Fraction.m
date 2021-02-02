@@ -33,15 +33,22 @@
 
 // add a Fraction to the receiver
 
--(void) add: (Fraction *) f
+-(Fraction *) add: (Fraction *) f
 {
   // To add two fractions:
   // a/b + c/d = ((a*d) + (b*c)) / (b * d)
   
-  numerator = numerator * f.denominator + denominator * f.numerator;
-  denominator = denominator * f.denominator;
+  Fraction *result = [[Fraction alloc] init];
+  
+  result.numerator = numerator * f.denominator + denominator * f.numerator;
+  result.denominator = denominator * f.denominator;
+  
+  [self reduce];
+  
+  return result;
 }
 
+// TODO:
 -(void) reduce
 {
   int u = numerator;
