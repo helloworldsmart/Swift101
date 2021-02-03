@@ -7,18 +7,23 @@
 
 #import <Foundation/Foundation.h>
 #import "RectangleClass.h"
+#import "Square.h"
 
 int main(int argc, const char * argv[]) {
   @autoreleasepool {
-      // insert code here...
-//      NSLog(@"Hello, World!");
+    
     RectangleClass *myRect = [[RectangleClass alloc] init];
     [myRect setWidth: 5 andHeight: 8];
     
     NSLog(@"Rectangle w = %i, h = %i", myRect.width, myRect.height);
     NSLog(@"Area = %i, Perimeter = %i", [myRect area], [myRect perimeter]);
-    return 0;
     
+    Square *mySquare = [[Square alloc] init];
+    
+    [mySquare setSide: 5];
+    
+    NSLog(@"Square s = %i", [mySquare side]);
+    NSLog(@"Area = %i Perimeter = %i", [mySquare area], [mySquare perimeter]);
   }
   return 0;
 }
