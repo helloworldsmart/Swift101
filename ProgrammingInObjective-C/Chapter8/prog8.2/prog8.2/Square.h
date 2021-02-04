@@ -6,9 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RectangleClass.h"
+#import "Rectangle.h"
 
-@interface Square : RectangleClass
+@interface Square : Rectangle
 -(void) setSide: (int) s;
 -(int) side;
 @end

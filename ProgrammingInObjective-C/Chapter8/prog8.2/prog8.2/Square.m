@@ -7,7 +7,7 @@
 
 #import "Square.h"
 
-@implementation Square: RectangleClass
+@implementation Square: Rectangle
 
 -(void) setSide: (int) s
 {

@@ -5,13 +5,24 @@
 //  Created by Michael on 2021/2/2.
 //
 
-#import "RectangleClass.h"
-@implementation RectangleClass
+#import "Rectangle.h"
+
+@implementation Rectangle
+{
+  XYPoint *origin;
+}
+
 @synthesize width, height;
+
 -(void) setWidth: (int)w andHeight: (int) h
 {
   width = w;
   height = h;
+}
+
+-(void) setOrigin: (XYPoint *) pt
+{
+  origin = pt;
 }
 
 -(int) area
@@ -22,5 +33,10 @@
 -(int) perimeter
 {
   return (width + height);
+}
+
+-(XYPoint *) origin
+{
+  return origin;
 }
 @end
