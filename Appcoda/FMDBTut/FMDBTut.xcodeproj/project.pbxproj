@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C62CBE325CC367100693064 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBD825CC366F00693064 /* FMDatabase.m */; };
+		4C62CBE425CC367100693064 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBD925CC366F00693064 /* FMDatabaseAdditions.m */; };
+		4C62CBE525CC367100693064 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBDB25CC366F00693064 /* FMDatabaseQueue.m */; };
+		4C62CBE625CC367100693064 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBDD25CC367000693064 /* FMDatabasePool.m */; };
+		4C62CBE725CC367100693064 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBE125CC367100693064 /* FMResultSet.m */; };
+		4C62CBEA25CC37EA00693064 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62CBE925CC37EA00693064 /* DBManager.swift */; };
 		C02828A01DA3C09700168A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028289F1DA3C09700168A48 /* AppDelegate.swift */; };
 		C02828A51DA3C09700168A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02828A31DA3C09700168A48 /* Main.storyboard */; };
 		C02828A71DA3C09700168A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02828A61DA3C09700168A48 /* Assets.xcassets */; };
@@ -18,6 +24,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C62CBD625CC366E00693064 /* FMDBTut-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FMDBTut-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C62CBD725CC366F00693064 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		4C62CBD825CC366F00693064 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		4C62CBD925CC366F00693064 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		4C62CBDB25CC366F00693064 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		4C62CBDC25CC367000693064 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		4C62CBDD25CC367000693064 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		4C62CBDE25CC367000693064 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		4C62CBDF25CC367000693064 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		4C62CBE025CC367000693064 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		4C62CBE125CC367100693064 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		4C62CBE225CC367100693064 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		4C62CBE925CC37EA00693064 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C028289C1DA3C09700168A48 /* FMDBTut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMDBTut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C028289F1DA3C09700168A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C02828A41DA3C09700168A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +61,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C62CBD525CC361400693064 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				4C62CBDC25CC367000693064 /* FMDatabase.h */,
+				4C62CBD825CC366F00693064 /* FMDatabase.m */,
+				4C62CBE225CC367100693064 /* FMDatabaseAdditions.h */,
+				4C62CBD925CC366F00693064 /* FMDatabaseAdditions.m */,
+				4C62CBDF25CC367000693064 /* FMDatabasePool.h */,
+				4C62CBDD25CC367000693064 /* FMDatabasePool.m */,
+				4C62CBDE25CC367000693064 /* FMDatabaseQueue.h */,
+				4C62CBDB25CC366F00693064 /* FMDatabaseQueue.m */,
+				4C62CBE025CC367000693064 /* FMDB.h */,
+				4C62CBD725CC366F00693064 /* FMResultSet.h */,
+				4C62CBE125CC367100693064 /* FMResultSet.m */,
+				4C62CBD625CC366E00693064 /* FMDBTut-Bridging-Header.h */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		C02828931DA3C09700168A48 = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +100,10 @@
 		C028289E1DA3C09700168A48 /* FMDBTut */ = {
 			isa = PBXGroup;
 			children = (
+				4C62CBD525CC361400693064 /* FMDB */,
 				C028289F1DA3C09700168A48 /* AppDelegate.swift */,
 				C02828B11DA3C0A500168A48 /* MoviesViewController.swift */,
+				4C62CBE925CC37EA00693064 /* DBManager.swift */,
 				C02828B31DA3C0B200168A48 /* MovieDetailsViewController.swift */,
 				C02828A31DA3C09700168A48 /* Main.storyboard */,
 				C02828A61DA3C09700168A48 /* Assets.xcassets */,
@@ -114,6 +154,7 @@
 				TargetAttributes = {
 					C028289B1DA3C09700168A48 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -159,6 +200,12 @@
 				C02828B41DA3C0B200168A48 /* MovieDetailsViewController.swift in Sources */,
 				C02828A01DA3C09700168A48 /* AppDelegate.swift in Sources */,
 				C02828B21DA3C0A500168A48 /* MoviesViewController.swift in Sources */,
+				4C62CBE325CC367100693064 /* FMDatabase.m in Sources */,
+				4C62CBEA25CC37EA00693064 /* DBManager.swift in Sources */,
+				4C62CBE625CC367100693064 /* FMDatabasePool.m in Sources */,
+				4C62CBE425CC367100693064 /* FMDatabaseAdditions.m in Sources */,
+				4C62CBE725CC367100693064 /* FMResultSet.m in Sources */,
+				4C62CBE525CC367100693064 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +350,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FMDBTut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.FMDBTut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FMDBTut/FMDB/FMDBTut-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -315,10 +365,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FMDBTut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.FMDBTut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FMDBTut/FMDB/FMDBTut-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
