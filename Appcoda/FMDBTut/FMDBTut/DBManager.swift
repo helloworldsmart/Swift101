@@ -9,6 +9,17 @@
 import UIKit
 
 class DBManager: NSObject {
+  
+  let field_MovieID = "movieID"
+  let field_MovieTitle = "title"
+  let field_MovieCategory = "category"
+  let field_MovieYear = "year"
+  let field_MovieURL = "movieURL"
+  let field_MovieCoverURL = "coverURL"
+  let field_MovieWatched = "watched"
+  let field_MovieLikes = "likes"
+  
+  
   static let shared: DBManager = DBManager()
   
   let databaseFileName = "database.sqlite"
@@ -33,8 +44,7 @@ class DBManager: NSObject {
       if database != nil {
         if database.open() {
           do {
-            let createMoviesTableQuery = "create table movies (movieID integer primary key autoincrement not null, title text not null, category text not null, year integer not null, movieURL text, coverURL text not null, watched bool not null default 0, likes integer not null)"
-  //          let createMoviesTableQuery = "create table movies (\(field_MovieID) integer primary key autoincrement not null, \(field_MovieTitle) text not null, \(field_MovieCategory) text not null, \(field_MovieYear) integer not null, \(field_MovieURL) text, \(field_MovieCoverURL) text not null, \(field_MovieWatched) bool not null default 0, \(field_MovieLikes) integer not null)"
+            let createMoviesTableQuery = "create table movies (\(field_MovieID) integer primary key autoincrement not null, \(field_MovieTitle) text not null, \(field_MovieCategory) text not null, \(field_MovieYear) integer not null, \(field_MovieURL) text, \(field_MovieCoverURL) text not null, \(field_MovieWatched) bool not null default 0, \(field_MovieLikes) integer not null)"
             try database.executeUpdate(createMoviesTableQuery, values: nil)
             created = true
           } catch {
