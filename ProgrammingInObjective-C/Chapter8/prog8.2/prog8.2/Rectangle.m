@@ -6,6 +6,7 @@
 //
 
 #import "Rectangle.h"
+#import "XYPoint.h"
 
 @implementation Rectangle
 {
@@ -32,7 +33,7 @@
 
 -(int) perimeter
 {
-  return (width + height);
+  return (width + height) * 2;
 }
 
 -(XYPoint *) origin
