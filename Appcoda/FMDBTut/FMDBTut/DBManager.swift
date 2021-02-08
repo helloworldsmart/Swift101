@@ -109,5 +109,40 @@ class DBManager: NSObject {
     }
   }
   
+  func loadMovies() -> [MovieInfo]! {
+    var movies: [MovieInfo]!
+    
+    if openDatabase() {
+      let query = "select * from movies order by \(field_MovieYear) asc"
+    
+      do {
+        print(database)
+        let results = try database.executeQuery(query, values: nil)
+        
+        while results.next() {
+          let movie = MovieInfo(movieID: Int(results.int(forColumn: field_MovieID)),
+                                title: results.string(forColumn: field_MovieTitle),
+                                category: results.string(forColumn: field_MovieCategory),
+                                year: Int(results.int(forColumn: field_MovieYear)),
+                                movieURL: results.string(forColumn: field_MovieURL),
+                                coverURL: results.string(forColumn: field_MovieCoverURL),
+                                watched: results.bool(forColumn: field_MovieWatched),
+                                likes: Int(results.int(forColumn: field_MovieLikes))
+          )
+          
+          if movies == nil {
+            movies = [MovieInfo]()
+          }
+          
+          movies.append(movie)
+        }
+      } catch {
+        print(error.localizedDescription)
+      }
+      database.close()
+    }
+    return movies
+  }
+  
 }
 

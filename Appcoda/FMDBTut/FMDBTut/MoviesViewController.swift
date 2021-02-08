@@ -36,6 +36,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: Initialization
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    movies = DBManager.shared.loadMovies()
+    tblMovies.reloadData()
+  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +91,35 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        return cell
+        let currentMovie = movies[indexPath.row]
+        
+        cell.textLabel?.text = currentMovie.title
+        cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+      
+      // Part1
+//      (URLSession(configuration: URLSessionConfiguration.default)).dataTask(with: URL(string: currentMovie.coverURL)!, completionHandler: { (imageData, response, error) in
+//        if let data = imageData {
+//          DispatchQueue.main.async {
+//            cell.imageView?.image = UIImage(data: data)
+//            cell.layoutSubviews()
+//          }
+//        }
+//      }).resume()
+      
+      // Part2
+      let sessionConfiguration = URLSessionConfiguration.default
+      let session = URLSession(configuration: sessionConfiguration)
+      let task = session.dataTask(with: URL(string: currentMovie.coverURL)!) {(imageData, response, error) in
+        if let data = imageData {
+          DispatchQueue.main.async {
+            cell.imageView?.image = UIImage(data: data)
+            cell.layoutSubviews()
+          }
+        }
+      }
+      task.resume()
+        
+      return cell
     }
     
     
