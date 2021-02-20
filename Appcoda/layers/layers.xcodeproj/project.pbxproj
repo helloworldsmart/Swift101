@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5D8DE425E14DC000E7D23C /* Pikachu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D8DE325E14DC000E7D23C /* Pikachu.jpg */; };
 		AF1567981CFD051E00B4E9B7 /* tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF1567971CFD051E00B4E9B7 /* tree.jpg */; };
 		AF7515C51CE797F3005964AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7515C41CE797F3005964AA /* AppDelegate.swift */; };
 		AF7515C71CE797F3005964AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7515C61CE797F3005964AA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C5D8DE325E14DC000E7D23C /* Pikachu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pikachu.jpg; sourceTree = "<group>"; };
 		AF1567971CFD051E00B4E9B7 /* tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tree.jpg; sourceTree = "<group>"; };
 		AF7515C11CE797F3005964AA /* layers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = layers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7515C41CE797F3005964AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				AF7515CB1CE797F3005964AA /* Assets.xcassets */,
 				AF7515CD1CE797F3005964AA /* LaunchScreen.storyboard */,
 				AF7515D01CE797F3005964AA /* Info.plist */,
+				4C5D8DE325E14DC000E7D23C /* Pikachu.jpg */,
 				AF1567971CFD051E00B4E9B7 /* tree.jpg */,
 			);
 			path = layers;
@@ -130,6 +133,7 @@
 				AF1567981CFD051E00B4E9B7 /* tree.jpg in Resources */,
 				AF7515CC1CE797F3005964AA /* Assets.xcassets in Resources */,
 				AF7515CA1CE797F3005964AA /* Main.storyboard in Resources */,
+				4C5D8DE425E14DC000E7D23C /* Pikachu.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
