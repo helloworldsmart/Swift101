@@ -11,22 +11,15 @@
 
 int main(int argc, const char * argv[]) {
   @autoreleasepool {
-    id  dataValue;
-    Fraction *f1 = [[Fraction alloc] init];
-    Complex *c1 = [[Complex alloc] init];
+    NSArray *myArray = [NSArray array];
     
-    [f1 setTo: 2 over: 5];
-    [c1 setReal: 10.0 andImaginary: 2.5];
+    @try {
+      [myArray objectAtIndex: 2];
+    } @catch (NSException *exception) {
+      NSLog(@"Caught %@%@", exception.name, exception.reason);
+    }
     
-    // first dataValue get a fraction
-    
-    dataValue = f1;
-    [dataValue print];
-    
-    // now dataValue gets a complex number
-    
-    dataValue = c1;
-    [dataValue print];
+    NSLog(@"Execution continues");
   }
   return 0;
 }
