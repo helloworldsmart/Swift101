@@ -145,3 +145,103 @@ mutableNumbers.remove(at: 0)
 mutableNumbers.removeFirst()
 
 mutableNumbers.removeAll()
+
+let oneSet: Set = [1, 1, 1, 1]
+print(oneSet)
+
+let oneArray: Array = [1, 1, 1, 1]
+print(oneArray)
+
+let numbersSet: Set = [1, 2, 3, 4, 5]
+print(numbersSet)
+
+for value in numbersSet {
+  print(value)
+}
+
+numbersSet.forEach { (value) in
+  print(value)
+}
+
+var mutableStringSet: Set = ["One", "Two", "Three"]
+let item = "Two"
+
+//contains
+if mutableStringSet.contains(item) {
+  print("\(item) found in the set")
+} else {
+  print("\(item) not found in the set")
+}
+
+//isEmpty
+let strings = Set<String>()
+if strings.isEmpty {
+  print("Set is empty")
+}
+
+//count
+let emptyStrings = Set<String>()
+if emptyStrings.count == 0 {
+  print("Set has no elements")
+}
+
+//insert
+mutableStringSet.insert("Four")
+
+//remove 1
+mutableStringSet.remove("Three")
+
+//remove 2
+if let removeElement = mutableStringSet.remove("Six") {
+  print("\(removeElement) was removed from the Set")
+} else {
+  print("Six is not found in the Set")
+}
+
+mutableStringSet.removeAll()
+
+//empty dictionary
+var dayOfWeek = Dictionary<Int, String>()
+var dayOfWeek2 = [Int: String]()
+
+//not empty dictionary
+var dayOfWeek3: [Int: String] = [0: "Sun", 1: "Mon", 2: "Tue"]
+print(dayOfWeek3)
+
+// iteration 1
+for (key, value) in dayOfWeek3 {
+  print("\(key): \(value)")
+}
+
+// iteration 2
+for key in dayOfWeek3.keys {
+  print(key)
+}
+
+// iteration 3
+for value in dayOfWeek3.values {
+  print(value)
+}
+
+// find value
+if let day = dayOfWeek3[2] {
+  print(day)
+}
+
+dayOfWeek3[3] = "Wed"
+print(dayOfWeek3)
+
+dayOfWeek3[2] = "Mardi"
+print(dayOfWeek3)
+
+dayOfWeek3.updateValue("Tue", forKey: 2)
+print(dayOfWeek3)
+
+dayOfWeek3[1] = nil
+print(dayOfWeek3)
+
+dayOfWeek3.removeValue(forKey: 2);
+print(dayOfWeek3)
+
+dayOfWeek3.removeAll()
+print(dayOfWeek3)
