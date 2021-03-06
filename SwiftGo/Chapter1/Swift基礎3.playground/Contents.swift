@@ -129,3 +129,58 @@ farmAnimals.isSuperset(of: houseAnimals)
 
 farmAnimals.isDisjoint(with: cityAnimals)
 
+var someDict: Dictionary<String, String>
+
+var someAnotherDict: [String: String]
+
+var myDict = [String: Int]()
+
+myDict["One"] = 1;
+
+myDict = [:]
+
+var myDict2 = ["TYO": "Tokyo", "DUB": "Dublin"]
+
+print(myDict2.count)
+
+if myDict2.isEmpty {
+  print("Empty !")
+} else {
+  print("Not empty !")
+}
+
+myDict2["LHR"] = "London"
+
+myDict2["LHR"] = "London Heathrow"
+
+myDict2["LHR"] = nil
+
+var myDict3 = ["LHR" : "London", "DUB": "Dublin"]
+
+myDict3.updateValue("London Heathrow", forKey: "LHR")
+
+print(myDict3["LHR"] as Any)
+
+// myDict3.removeValueForKey("DUB")
+myDict3.removeValue(forKey: "DUB")
+
+var myDict4 = ["LHR": "London", "DUB": "Dublin"]
+
+var someArr1 = [String](myDict4.keys)
+
+var someArr2 = [String](myDict4.values)
+
+someArr1.sort()
+someArr2.sort()
+
+for (key, value) in myDict4 {
+  print("\(key): \(value)")
+}
+
+for code in myDict4.keys {
+  print(code)
+}
+
+for n in myDict4.values {
+  print(n)
+}
