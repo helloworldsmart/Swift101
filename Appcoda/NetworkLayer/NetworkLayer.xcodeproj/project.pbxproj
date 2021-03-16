@@ -19,6 +19,7 @@
 		4C66606925FFA720000C32A3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66606825FFA720000C32A3 /* HTTPMethod.swift */; };
 		4C66606E25FFA7F2000C32A3 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66606D25FFA7F2000C32A3 /* HTTPTask.swift */; };
 		4C66607325FFAA15000C32A3 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66607225FFAA15000C32A3 /* ParameterEncoding.swift */; };
+		4C7A647F2600DB7600118234 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A647E2600DB7600118234 /* URLParameterEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		4C66606825FFA720000C32A3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		4C66606D25FFA7F2000C32A3 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		4C66607225FFAA15000C32A3 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		4C7A647E2600DB7600118234 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				4C66607225FFAA15000C32A3 /* ParameterEncoding.swift */,
+				4C7A647E2600DB7600118234 /* URLParameterEncoder.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7A647F2600DB7600118234 /* URLParameterEncoder.swift in Sources */,
 				4C66607325FFAA15000C32A3 /* ParameterEncoding.swift in Sources */,
 				4C66606E25FFA7F2000C32A3 /* HTTPTask.swift in Sources */,
 				4C66606325FFA356000C32A3 /* EndPointType.swift in Sources */,
