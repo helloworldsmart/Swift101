@@ -8,6 +8,7 @@
 import UIKit
 
 public class SelectQuestionGroupViewController: UIViewController {
+  
   // MARK: - Outlets
   @IBOutlet internal var tableView: UITableView! {
     didSet {
@@ -35,4 +36,37 @@ extension SelectQuestionGroupViewController: UITableViewDataSource {
     
   }
   
+}
+
+// MARK:- UITableViewDelegate
+extension SelectQuestionGroupViewController: UITableViewDelegate {
+  // 1
+  public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    selectedQuestionGroup = questionGroups[indexPath.row]
+    return indexPath
+  }
+  // 2
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  // 3
+  public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let viewController = segue.destination as? QuestionViewController else {
+      return
+    }
+    viewController.questionGroup = selectedQuestionGroup
+    viewController.delegate = self
+  }
+}
+
+// MARK: - QuestionViewControllerDelegate
+extension SelectQuestionGroupViewController: QuestionViewControllerDelegate {
+  public func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionGroup, at questionIndex: Int) {
+    <#code#>
+  }
+  
+  public func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionGroup) {
+    <#code#>
+  }
 }
