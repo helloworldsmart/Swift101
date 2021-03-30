@@ -23,9 +23,10 @@ struct MemoryGame<CardContent> {
     }
   }
   
-  struct Card {
+  struct Card: Identifiable {
     var isFaceUp: Bool
     var isMatched: Bool
     var content: CardContent
+    var id: Int
   }
 }

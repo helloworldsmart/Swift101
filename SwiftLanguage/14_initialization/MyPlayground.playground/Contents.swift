@@ -115,3 +115,159 @@ struct Rect {
 let basicRect = Rect()
 let originRect = Rect(origin: Point(x: 2.0, y: 2.0), size: Size(width: 5.0, height: 5.0))
 let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, height: 3.0))
+
+/*
+init(parameters) {
+  statements
+}
+ */
+
+/*
+ convenience init(parameters) {
+  statements
+ }
+ */
+
+class Vehicle {
+  var numberOfWheels = 0
+  var description: String {
+    return "\(numberOfWheels) wheel(s)"
+  }
+}
+
+let vehicle = Vehicle()
+print("Vehicle: \(vehicle.description)")
+
+class Bicycle: Vehicle {
+  override init() {
+    super.init()
+    numberOfWheels = 2
+  }
+}
+
+let bicycle = Bicycle()
+print("Bicycle: \(bicycle.description)")
+
+class Hoverboard: Vehicle {
+  var color: String
+  init(color: String) {
+    self.color = color
+    // super.init() 被隱藏調用
+  }
+  override var description: String {
+    return "\(super.description) in a beautiful \(color)"
+  }
+}
+
+let hoverboard = Hoverboard(color: "silver")
+print("Hoverboard: \(hoverboard.description)")
+
+class Food {
+  var name: String
+  init(name: String) {
+    self.name = name
+  }
+  
+  convenience init() {
+    self.init(name: "[Unnamed]")
+  }
+}
+
+let nameMeat = Food(name: "Bacon")
+let mysteryMeat = Food()
+
+class RecipeIngredient: Food {
+  var quantity: Int
+  init(name: String, quantity: Int) {
+    self.quantity = quantity
+    super.init(name: name)
+  }
+  override convenience init(name: String) {
+    self.init(name: name, quantity: 1)
+  }
+}
+
+let oneMysteryItem = RecipeIngredient()
+let oneBacon = RecipeIngredient(name: "Bacon")
+let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
+
+class ShoppingListItem2: RecipeIngredient {
+  var purchased = false
+  var description: String {
+    var output = "\(quantity) x \(name)"
+    output += purchased ? " ✔" : " ✘"
+    return output
+  }
+}
+
+var breakfastList = [
+  ShoppingListItem2(),
+  ShoppingListItem2(name: "Bacon"),
+  ShoppingListItem2(name: "Eggs", quantity: 6),
+]
+breakfastList[0].name = "Orange juice"
+breakfastList[0].purchased = true
+for item in breakfastList {
+  print(item.description)
+}
+
+let wholeNumber: Double = 12345.0
+let pi = 3.14159
+
+if let valueMaintained = Int(exactly: wholeNumber) {
+  print("\(wholeNumber) conversion to Int maintains value of \(valueMaintained)")
+}
+
+let valueChanged = Int(exactly: pi)
+  
+if valueChanged == nil {
+  print("\(pi) conversion to Int does not maintain values")
+}
+
+struct Animal {
+  let species: String
+  init?(species: String) {
+    if species.isEmpty {
+      return nil
+    }
+    self.species = species
+  }
+}
+
+let someCreature = Animal(species: "Giraffe")
+
+if let giraffe = someCreature {
+  print("An animal was initialized with a species of \(giraffe.species)")
+}
+
+let anonymousCreature = Animal(species: "")
+
+if anonymousCreature == nil {
+  print("The anonymous creature could not be initialized")
+}
+
+enum TemperatureUnit {
+  case Kelvin, Celsius, Fahrenheit
+  init?(symbol: Character) {
+    switch symbol {
+    case "K":
+      self = .Kelvin
+    case "C":
+      self = .Celsius
+    case "F":
+      self = .Fahrenheit
+    default:
+      return nil
+    }
+  }
+}
+
+let fahrenheitUnit = TemperatureUnit(symbol: "F")
+if fahrenheitUnit != nil {
+  print("This is a defined temperature unit, so initialization succeeded.")
+}
+
+let unknownUnit = TemperatureUnit(symbol: "X")
+if unknownUnit == nil {
+  print("This is a defined temperature unit, so initialization succeeded.")
+}
