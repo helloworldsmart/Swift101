@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5DCC5C2625D2FF00DAA7E6 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DCC5B2625D2FF00DAA7E6 /* FeedViewController.swift */; };
 		4C5F9D1226248FD9000840D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F9D1126248FD9000840D9 /* AppDelegate.swift */; };
 		4C5F9D1426248FD9000840D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F9D1326248FD9000840D9 /* SceneDelegate.swift */; };
 		4C5F9D1626248FD9000840D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5F9D1526248FD9000840D9 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C5DCC5B2625D2FF00DAA7E6 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4C5F9D0E26248FD9000840D9 /* Singleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Singleton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5F9D1126248FD9000840D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C5F9D1326248FD9000840D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				4C5F9D1F26248FDA000840D9 /* Info.plist */,
 				4C5F9D1926248FDA000840D9 /* Preview Content */,
 				4C5F9D4426249005000840D9 /* Singleton.swift */,
+				4C5DCC5B2625D2FF00DAA7E6 /* FeedViewController.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				4C5F9D1226248FD9000840D9 /* AppDelegate.swift in Sources */,
 				4C5F9D4526249005000840D9 /* Singleton.swift in Sources */,
+				4C5DCC5C2625D2FF00DAA7E6 /* FeedViewController.swift in Sources */,
 				4C5F9D1426248FD9000840D9 /* SceneDelegate.swift in Sources */,
 				4C5F9D1626248FD9000840D9 /* ContentView.swift in Sources */,
 			);
