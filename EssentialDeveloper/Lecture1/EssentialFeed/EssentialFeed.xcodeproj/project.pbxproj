@@ -67,10 +67,18 @@
 				4C54C8A5262C24D90053F827 /* Assets.xcassets */,
 				4C54C8A7262C24D90053F827 /* LaunchScreen.storyboard */,
 				4C54C8AA262C24D90053F827 /* Info.plist */,
+				4C54C8B7262C2D1A0053F827 /* Feed Feature */,
+			);
+			path = EssentialFeed;
+			sourceTree = "<group>";
+		};
+		4C54C8B7262C2D1A0053F827 /* Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
 				4C54C8B1262C25430053F827 /* FeedItem.swift */,
 				4C54C8B4262C281A0053F827 /* FeedLoader.swift */,
 			);
-			path = EssentialFeed;
+			path = "Feed Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
