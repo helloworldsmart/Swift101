@@ -19,15 +19,16 @@ extension ViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return dataSource.count
+      return messierViewModel.count
     }
     
     // #6 - why is this in a UIViewController subclass?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell")
       
-      tableViewCell?.textLabel?.text = dataSource[indexPath.row]
-      tableViewCell?.detailTextLabel?.text = dataSource[indexPath.row] + " subtitle"
+        tableViewCell?.imageView?.image = UIImage(named: messierViewModel[indexPath.row].thumbnail)
+        tableViewCell?.textLabel?.text = messierViewModel[indexPath.row].formalName
+        tableViewCell?.detailTextLabel?.text = messierViewModel[indexPath.row].commonName
       
       return tableViewCell!
     }
