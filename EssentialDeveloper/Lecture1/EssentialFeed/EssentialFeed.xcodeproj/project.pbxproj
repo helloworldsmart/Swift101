@@ -14,6 +14,7 @@
 		4C54C8A6262C24D90053F827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C54C8A5262C24D90053F827 /* Assets.xcassets */; };
 		4C54C8A9262C24D90053F827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C54C8A7262C24D90053F827 /* LaunchScreen.storyboard */; };
 		4C54C8B2262C25430053F827 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54C8B1262C25430053F827 /* FeedItem.swift */; };
+		4C54C8B5262C281A0053F827 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54C8B4262C281A0053F827 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4C54C8A8262C24D90053F827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C54C8AA262C24D90053F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C54C8B1262C25430053F827 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		4C54C8B4262C281A0053F827 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4C54C8A7262C24D90053F827 /* LaunchScreen.storyboard */,
 				4C54C8AA262C24D90053F827 /* Info.plist */,
 				4C54C8B1262C25430053F827 /* FeedItem.swift */,
+				4C54C8B4262C281A0053F827 /* FeedLoader.swift */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				4C54C8B2262C25430053F827 /* FeedItem.swift in Sources */,
 				4C54C8A1262C24CF0053F827 /* ViewController.swift in Sources */,
 				4C54C89D262C24CF0053F827 /* AppDelegate.swift in Sources */,
+				4C54C8B5262C281A0053F827 /* FeedLoader.swift in Sources */,
 				4C54C89F262C24CF0053F827 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
