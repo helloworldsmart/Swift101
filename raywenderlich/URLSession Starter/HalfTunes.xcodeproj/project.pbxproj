@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CA23D4D26A881A300C2FB33 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA23D4C26A881A300C2FB33 /* Download.swift */; };
 		5394F02521864DF5006E754C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5394F02321864DF4006E754C /* LaunchScreen.storyboard */; };
 		55138322227DCD7B00A739ED /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55138321227DCD7B00A739ED /* TrackCell.swift */; };
 		55138329227DCE0D00A739ED /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55138328227DCE0D00A739ED /* Track.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CA23D4C26A881A300C2FB33 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		5394F02421864DF4006E754C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55138321227DCD7B00A739ED /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		55138328227DCE0D00A739ED /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				55138328227DCE0D00A739ED /* Track.swift */,
+				4CA23D4C26A881A300C2FB33 /* Download.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				5513832F227DD49300A739ED /* QueryService.swift in Sources */,
 				5513832C227DD0C400A739ED /* SearchViewController.swift in Sources */,
 				55138329227DCE0D00A739ED /* Track.swift in Sources */,
+				4CA23D4D26A881A300C2FB33 /* Download.swift in Sources */,
 				55138331227DD51800A739ED /* DownloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

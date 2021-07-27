@@ -55,6 +55,14 @@ class SearchViewController: UIViewController {
   //
   // TODO 6
   
+  lazy var downloadSession: URLSession = {
+//    let configuration = URLSessionConfiguration.default
+    let configuration = URLSessionConfiguration.background(withIdentifier: "com.raywenderlich.HalfTunes.bgSession")
+    
+    return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+  }()
+  
+  
   var searchResults: [Track] = []
   
   lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -99,6 +107,7 @@ class SearchViewController: UIViewController {
     tableView.tableFooterView = UIView()
     
     // TODO 7
+    downloadService.downloadsSession = downloadSession
   }
   
 }
@@ -152,7 +161,7 @@ extension SearchViewController: UITableViewDataSource {
     
     let track = searchResults[indexPath.row]
     // TODO 13
-    cell.configure(track: track, downloaded: track.downloaded)
+    cell.configure(track: track, downloaded: track.downloaded, download: downloadService.activeDownloads[track.previewURL] )
     
     return cell
   }
@@ -221,5 +230,51 @@ extension SearchViewController: TrackCellDelegate {
 }
 
 // TODO 19
+extension SearchViewController: URLSessionDelegate {
+  func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+    DispatchQueue.main.async {
+      if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+         let completionHandler = appDelegate.backgroundSessionCompletionHandler {
+        appDelegate.backgroundSessionCompletionHandler = nil
+        
+        completionHandler()
+      }
+    }
+  }
+}
 
 // TODO 5
+
+extension SearchViewController: URLSessionDownloadDelegate {
+  
+  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+    print("Finished downloading to \(location).")
+    
+    guard let sourceURL = downloadTask.originalRequest?.url else {
+      return
+    }
+    
+    let download = downloadService.activeDownloads[sourceURL]
+    downloadService.activeDownloads[sourceURL] = nil
+    
+    let destinationURL = localFilePath(for: sourceURL)
+    print(destinationURL)
+    
+    let fileManager = FileManager.default
+    try? fileManager.removeItem(at: destinationURL)
+    
+    do {
+      try fileManager.copyItem(at: location, to: destinationURL)
+      download?.track.downloaded = true
+    } catch let error {
+      print("Could not copy file to disk: \(error.localizedDescription)")
+    }
+    
+    if let index = download?.track.index {
+      DispatchQueue.main.async { [weak self] in
+        self?.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+      }
+    }
+    
+  }
+}

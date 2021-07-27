@@ -1,4 +1,4 @@
-/// Copyright (c) 2019 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -26,53 +26,16 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-//
-// MARK: - App Delegate
-//
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-  //
-  // MARK: - Constants
-  //
-  let tintColor =  UIColor(red: 242/255, green: 71/255, blue: 63/255, alpha: 1)
+class Download {
+  var isDownloading = false
+  var progress: Float = 0
+  var resumeData: Data?
+  var task: URLSessionDownloadTask?
+  var track: Track
   
-  //
-  // MARK: - Variables And Properties
-  //
-  // TODO 17
-  var window: UIWindow?
-  var backgroundSessionCompletionHandler: (() -> Void)?
-  
-  //
-  // MARK: - Application Delegate
-  //
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    customizeAppearance()
-    return true
-  }
-  
-  // TODO 18
-  func application(_ application: UIApplication,
-                   handleEventsForBackgroundURLSession
-                     handleEventsForBackgroundURLSessionidentifier: String,
-                   completionHandler: @escaping () -> Void) {
-    backgroundSessionCompletionHandler = completionHandler
-  }
-  //
-  // MARK - Private Methods
-  //
-  private func customizeAppearance() {
-    window?.tintColor = tintColor
-    
-    UISearchBar.appearance().barTintColor = tintColor
-    
-    UINavigationBar.appearance().barTintColor = tintColor
-    UINavigationBar.appearance().tintColor = UIColor.white
-    
-    let titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.white]
-    UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+  init(track: Track) {
+    self.track = track
   }
 }
