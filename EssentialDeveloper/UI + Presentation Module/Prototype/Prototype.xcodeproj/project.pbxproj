@@ -13,6 +13,7 @@
 		4CDB918326BEB8AB00A293EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB918226BEB8AB00A293EE /* Assets.xcassets */; };
 		4CDB918626BEB8AB00A293EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB918426BEB8AB00A293EE /* LaunchScreen.storyboard */; };
 		4CDB919126BEDEB500A293EE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB919026BEDEB500A293EE /* FeedViewController.swift */; };
+		4CDB919426BEE57900A293EE /* FeedImageViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB919326BEE57900A293EE /* FeedImageViewModel+PrototypeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4CDB918526BEB8AB00A293EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CDB918726BEB8AB00A293EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CDB919026BEDEB500A293EE /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4CDB919326BEE57900A293EE /* FeedImageViewModel+PrototypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4CDB918426BEB8AB00A293EE /* LaunchScreen.storyboard */,
 				4CDB918726BEB8AB00A293EE /* Info.plist */,
 				4CDB919026BEDEB500A293EE /* FeedViewController.swift */,
+				4CDB919326BEE57900A293EE /* FeedImageViewModel+PrototypeData.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				4CDB917A26BEB8A200A293EE /* AppDelegate.swift in Sources */,
 				4CDB919126BEDEB500A293EE /* FeedViewController.swift in Sources */,
+				4CDB919426BEE57900A293EE /* FeedImageViewModel+PrototypeData.swift in Sources */,
 				4CDB917C26BEB8A200A293EE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
