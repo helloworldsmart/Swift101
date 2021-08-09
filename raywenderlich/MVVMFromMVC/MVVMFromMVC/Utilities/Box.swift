@@ -1,4 +1,4 @@
-/// Copyright (c) 2019 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -18,6 +18,10 @@
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
 /// 
+/// This project and source code may use libraries or frameworks that are
+/// released under various Open-Source licenses. Use of those libraries and
+/// frameworks are governed by their own individual licenses.
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,33 +30,25 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class WeatherViewController: UIViewController {
+final class Box<T> {
+  typealias Listener = (T) -> Void
+  var listener: Listener?
   
-  private let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE, MMM d"
-    return dateFormatter
-  }()
-  private let tempFormatter: NumberFormatter = {
-    let tempFormatter = NumberFormatter()
-    tempFormatter.numberStyle = .none
-    return tempFormatter
-  }()
-  
-  @IBOutlet weak var cityLabel: UILabel!
-  @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var currentIcon: UIImageView!
-  @IBOutlet weak var currentSummaryLabel: UILabel!
-  @IBOutlet weak var forecastSummary: UITextView!
-  
-  private let viewModel = WeatherViewModel()
-  
-  override func viewDidLoad() {
-    viewModel.locationName.bind { [weak self] locationName in
-      self?.cityLabel.text = locationName
+  var value: T {
+    didSet {
+      listener?(value)
     }
   }
-
+  
+  init(_ value: T) {
+    self.value = value
+  }
+  
+  func bind(listener: Listener?) {
+    self.listener = listener
+    listener?(value)
+  }
+  
 }
