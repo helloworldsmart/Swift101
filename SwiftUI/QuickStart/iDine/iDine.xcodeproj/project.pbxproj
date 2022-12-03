@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C603964293B28F6008E4B9E /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C8095C12938FB570087391E /* menu.json */; };
+		4C603966293B32E9008E4B9E /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C603965293B32E9008E4B9E /* ItemRow.swift */; };
 		4C8095B12938F8E90087391E /* iDineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8095B02938F8E90087391E /* iDineApp.swift */; };
 		4C8095B32938F8E90087391E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8095B22938F8E90087391E /* ContentView.swift */; };
 		4C8095B52938F8EA0087391E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8095B42938F8EA0087391E /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C603965293B32E9008E4B9E /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		4C8095AD2938F8E90087391E /* iDine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8095B02938F8E90087391E /* iDineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDineApp.swift; sourceTree = "<group>"; };
 		4C8095B22938F8E90087391E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		4C8095AF2938F8E90087391E /* iDine */ = {
 			isa = PBXGroup;
 			children = (
+				4C603965293B32E9008E4B9E /* ItemRow.swift */,
 				4C8095B02938F8E90087391E /* iDineApp.swift */,
 				4C8095B22938F8E90087391E /* ContentView.swift */,
 				4C8095BE2938FB4C0087391E /* Helper.swift */,
@@ -153,6 +156,7 @@
 				4C8095B32938F8E90087391E /* ContentView.swift in Sources */,
 				4C8095B12938F8E90087391E /* iDineApp.swift in Sources */,
 				4C8095C42938FB570087391E /* Order.swift in Sources */,
+				4C603966293B32E9008E4B9E /* ItemRow.swift in Sources */,
 				4C8095C32938FB570087391E /* Menu.swift in Sources */,
 				4C8095BF2938FB4C0087391E /* Helper.swift in Sources */,
 			);
