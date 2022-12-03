@@ -9,11 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        List {
-            Text("Hello World")
-            Text("Hello World")
-            Text("Hello World")
+    // MARK: error build: Cannot find 'NavigationStack' in scope
+//        NavigationStack
+        NavigationView {
+            List {
+                Text("Hello World")
+                Text("Hello World")
+                Text("Hello World")
+            }
+            .navigationTitle("Menu")
         }
+        
     }
 }
 
