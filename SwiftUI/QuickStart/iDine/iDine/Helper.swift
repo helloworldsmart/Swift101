@@ -6,7 +6,7 @@
 //  Copyright © 2019 Hacking with Swift. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension Bundle {
     func decode<T: Decodable>(_ type: T.Type, from file: String) -> T {
