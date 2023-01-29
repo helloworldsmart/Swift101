@@ -8,8 +8,9 @@
 
 import SwiftUI
 
-class Order {
-    var items = [MenuItem]()
+// MARK: Is ObservableObject not ObservedObject
+class Order: ObservableObject {
+    @Published var items = [MenuItem]()
 
     var total: Int {
         if items.count > 0 {
