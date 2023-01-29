@@ -17,7 +17,10 @@ struct ContentView: View {
                 ForEach(menu) { section in
                     Section(header: Text(section.name)) {
                         ForEach(section.items) { item in
-                            ItemRow(item: item)
+                            // MARK: grammar has changed.
+                            NavigationLink(destination: ItemDetail(item: item)) {
+                                ItemRow(item: item)
+                            }
                         }
                     }
                 }
