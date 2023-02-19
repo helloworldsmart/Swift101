@@ -17,6 +17,7 @@
 		4C8095BF2938FB4C0087391E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8095BE2938FB4C0087391E /* Helper.swift */; };
 		4C8095C32938FB570087391E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8095C02938FB570087391E /* Menu.swift */; };
 		4C8095C42938FB570087391E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8095C22938FB570087391E /* Order.swift */; };
+		4C9546CA29977FFE001DD6C9 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9546C929977FFE001DD6C9 /* OrderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		4C8095C02938FB570087391E /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		4C8095C12938FB570087391E /* menu.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		4C8095C22938FB570087391E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		4C9546C929977FFE001DD6C9 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				4C8095B02938F8E90087391E /* iDineApp.swift */,
 				4C8095B22938F8E90087391E /* ContentView.swift */,
 				4C74AC8A2986590200319B4D /* ItemDetail.swift */,
+				4C9546C929977FFE001DD6C9 /* OrderView.swift */,
 				4C8095BE2938FB4C0087391E /* Helper.swift */,
 				4C8095C12938FB570087391E /* menu.json */,
 				4C8095C02938FB570087391E /* Menu.swift */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C74AC8B2986590200319B4D /* ItemDetail.swift in Sources */,
+				4C9546CA29977FFE001DD6C9 /* OrderView.swift in Sources */,
 				4C8095B32938F8E90087391E /* ContentView.swift in Sources */,
 				4C8095B12938F8E90087391E /* iDineApp.swift in Sources */,
 				4C8095C42938FB570087391E /* Order.swift in Sources */,
