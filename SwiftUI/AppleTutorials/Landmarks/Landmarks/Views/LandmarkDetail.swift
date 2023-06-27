@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  LandmarkDetail.swift
 //  Landmarks
 //
-//  Created by Michael on 2023/6/26.
+//  Created by Michael on 2023/6/27.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct LandmarkDetail: View {
     var body: some View {
         VStack {
             MapView()
@@ -43,25 +43,8 @@ struct ContentView: View {
     }
 }
 
-
-//VStack {
-//    Image(systemName: "globe")
-//        .imageScale(.large)
-//        .foregroundColor(.accentColor)
-//    VStack(alignment: .leading) {
-//        Text("Turtle Rock")
-//            .font(.title)
-//        HStack {
-
-//        }
-//    }
-//    .padding()
-//
-//}
-//.padding()
-
-struct ContentView_Previews: PreviewProvider {
+struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LandmarkDetail()
     }
 }
