@@ -40,3 +40,7 @@ print(result.uppercased())
 print(movie.hasPrefix("A day"))
 print(movie.hasPrefix("a day"))
 print(filename.hasSuffix(".jpg"))
+
+var favoriteShow = "Orange is the New Black"
+favoriteShow = "The Good Place"
+favoriteShow = "Doctor Who"
