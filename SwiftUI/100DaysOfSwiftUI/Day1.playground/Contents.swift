@@ -51,3 +51,9 @@ The best laid schemes
 O' mice and men
 Gang aft agley
 """
+
+// Multi-line string literal closing delimiter must begin on a new line
+
+//var coleridge = """
+//Water, water, everywhere
+//and not a drop to drink"""
