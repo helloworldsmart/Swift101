@@ -34,3 +34,6 @@ let missionMessage = "Apollo " + String(number) + " landed on the moon."
 
 let missionMessage2 = "Apollo \(number) landed on the moon."
 print("5 x 5 is \(5 * 5)")
+
+var city = "Cardiff"
+var message2 = "Welcome to \(city)"
