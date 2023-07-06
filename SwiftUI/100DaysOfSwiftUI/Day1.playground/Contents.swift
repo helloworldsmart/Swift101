@@ -86,14 +86,3 @@ print(120.isMultiple(of: 3))
 let number1 = 0.1 + 0.2
 print(number1)
 
-var isAuthenticated = false
-isAuthenticated = !isAuthenticated
-print(isAuthenticated)
-isAuthenticated = !isAuthenticated
-print(isAuthenticated)
-
-var gameOver = false
-print(gameOver)
-
-gameOver.toggle()
-print(gameOver)
