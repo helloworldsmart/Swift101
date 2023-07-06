@@ -81,3 +81,7 @@ print(counter)
 let number = 120
 print(number.isMultiple(of: 3))
 print(120.isMultiple(of: 3))
+
+//let number1 = Float(0.1) + Float(0.2)
+let number1 = 0.1 + 0.2
+print(number1)
