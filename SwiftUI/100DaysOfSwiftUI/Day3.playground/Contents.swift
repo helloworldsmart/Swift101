@@ -83,3 +83,13 @@ var archEnemies = [String: String]()
 archEnemies["Batman"] = "The Joker"
 archEnemies["Superman"] = "Lex Luthor"
 archEnemies["Batman"] = "Penguin"
+
+// This code is valid Swift.
+let capitals = ["England": "London", "Wales": "Cardiff"]
+let scotlandCapital = capitals["Scotland"]
+print(scotlandCapital)
+
+var songs = Set<String>()
+songs.insert("我當你空氣 You Are My Air")
+songs.insert("那年夏天寧靜的海")
+songs.insert("想見你")
