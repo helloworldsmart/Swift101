@@ -93,3 +93,13 @@ var songs = Set<String>()
 songs.insert("我當你空氣 You Are My Air")
 songs.insert("那年夏天寧靜的海")
 songs.insert("想見你")
+
+let staffReviews = Set([1, 2, 1, 2, 3])
+
+enum Weekday {
+    case monday, tuesday, wednesday, thursday, friday
+}
+
+var day = Weekday.monday
+day = .tuesday
+day = .friday
