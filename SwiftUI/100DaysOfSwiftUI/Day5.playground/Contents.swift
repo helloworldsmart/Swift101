@@ -69,3 +69,13 @@ if username.isEmpty == true {
 if username.isEmpty {
     username = "Anonymous"
 }
+
+enum Sizes: Comparable {
+    case small
+    case medium
+    case large
+}
+
+let first = Sizes.small
+let second = Sizes.large
+print(first < second)
