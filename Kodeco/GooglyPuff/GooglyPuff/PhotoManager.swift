@@ -53,17 +53,49 @@ final class PhotoManager {
   static let shared = PhotoManager()
 
   private var unsafePhotos: [Photo] = []
+    
+    private let concurrentPhotoQueue = DispatchQueue(
+        label: "com.raywenderlich.GooglyPuff.photoQueue",
+        attributes: .concurrent
+    )
 
-  var photos: [Photo] {
-    return unsafePhotos
-  }
-
-  func addPhoto(_ photo: Photo) {
-    unsafePhotos.append(photo)
-    DispatchQueue.main.async { [weak self] in
-      self?.postContentAddedNotification()
+//  var photos: [Photo] {
+//    return unsafePhotos
+//  }
+    
+    var photos: [Photo] {
+        var photosCopy: [Photo] = []
+        
+        concurrentPhotoQueue.sync {
+            photosCopy = self.unsafePhotos
+        }
+        return photosCopy
     }
-  }
+
+
+//  func addPhoto(_ photo: Photo) {
+//    unsafePhotos.append(photo)
+//    DispatchQueue.main.async { [weak self] in
+//      self?.postContentAddedNotification()
+//    }
+//  }
+    
+    func addPhoto(_ photo: Photo) {
+        // 1
+        concurrentPhotoQueue.async(flags: .barrier) { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            // 2
+            self.unsafePhotos.append(photo)
+            
+            // 3
+            DispatchQueue.main.async { [weak self] in
+                self?.postContentAddedNotification()
+            }
+        }
+    }
 
   func downloadPhotos(withCompletion completion: BatchPhotoDownloadingCompletionClosure?) {
     var storedError: NSError?
