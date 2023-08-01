@@ -28,8 +28,49 @@
 
 import UIKit
 
+class User {
+  let name: String
+  
+  private(set) var phones: [Phone] = []
+  
+  func add(phone: Phone) {
+    phones.append(phone)
+    phone.owner = self
+  }
+  
+  init(name: String) {
+    self.name = name
+    print("User \(name) was initialized")
+  }
+  
+  deinit {
+    print("Deallocating user named: \(name)")
+  }
+}
+
+class Phone {
+  let model: String
+  var owner: User?
+  
+  init(model: String) {
+    self.model = model
+    print("Phone \(model) was initialized")
+  }
+  
+  deinit {
+    print("Deallocating phone named: \(model)")
+  }
+}
+
 class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    runScenario()
+  }
+  
+  func runScenario() {
+    let user = User(name: "John")
+    let iPhone = Phone(model: "iPhone Xs")
+    user.add(phone: iPhone)
   }
 }
