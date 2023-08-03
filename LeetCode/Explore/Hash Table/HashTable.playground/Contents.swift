@@ -118,3 +118,10 @@ if findDuplicates(keys: keys) {
 } else {
     print("No duplicates")
 }
+
+// Contins Duplicate
+class Solution {
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        
+    }
+}
