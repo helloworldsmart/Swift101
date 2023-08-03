@@ -133,3 +133,10 @@ class Solution {
         return false
     }
 }
+
+// Single Number
+class SingleNumberSolution {
+    func singleNumber(_ nums: [Int]) -> Int {
+        
+    }
+}
