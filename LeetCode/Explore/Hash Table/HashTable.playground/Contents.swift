@@ -63,3 +63,37 @@ class MyHashMap {
         buckets[hashValue].removeAll(where: {$0.0 == key})
     }
 }
+
+// Hash Set - Usage
+
+class Main {
+    static func main() {
+        // 1. initialize the set
+        var hashSet = Set<Int>()
+        // 2. add a new key
+        hashSet.insert(3)
+        hashSet.insert(2)
+        hashSet.insert(1)
+        // 3. remove the key
+        hashSet.remove(2)
+        // 4. check if the key is in the set
+        if !hashSet.contains(2) {
+            print("Key 2 is not in the set.")
+        }
+        // 5. get the size of the set
+        print("The size of the set is: \(hashSet.count)")
+        // 6. iterate the set
+        for i in hashSet {
+            print(i, terminator: " ")
+        }
+        print("are in the set")
+        // 7. clear the set
+        hashSet.removeAll()
+        if hashSet.isEmpty {
+            print("Set is empty now!")
+        }
+    }
+}
+
+// Call the main function
+Main.main()
