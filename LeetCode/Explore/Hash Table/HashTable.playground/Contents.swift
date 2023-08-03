@@ -97,3 +97,24 @@ class Main {
 
 // Call the main function
 Main.main()
+
+// Find Duplicates By Hash Set
+
+func findDuplicates<T: Hashable>(keys: [T]) -> Bool {
+    var hashSet = Set<T>()
+    for key in keys {
+        if hashSet.contains(key) {
+            return true
+        }
+        hashSet.insert(key)
+    }
+    return false
+}
+
+//
+let keys: [Int] = [1, 2, 3, 4, 5, 2]
+if findDuplicates(keys: keys) {
+    print("Duplicates found.")
+} else {
+    print("No duplicates")
+}
