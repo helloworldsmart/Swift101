@@ -5,51 +5,64 @@ import Foundation
 // you can write to stdout for debugging purposes, e.g.
 // print("this is a debug message")
 
-public func solution1(_ A : inout [Int], _ K : Int) -> [Int] {
+public func solution(_ N : Int) -> Int {
     // Implement your solution here
-    var tempArray = A
-    for _ in K {
-        let removedElement = tempArray.removeLast()
-        tempArray.insert(removedElement, at: 0)
+    var max = 0
+    var count = 0
+    let binaryString = String(N, radix: 2)
+    var flag = 0
+    for char in binaryString {
+        if char == "1" {
+            flag += 1
+        }
+        if char == "0" && flag == 1 {
+            count += 1
+        }
+        if flag == 2 {
+            if max < count {
+                max = count
+            }
+            flag = 1
+        }
     }
-    return tempArray
+    return max
 }
 
 // -----
-// 上面程式語法錯誤
-// solution.swift:10:14: error: for-in loop requires 'Int' to conform to 'Sequence'
-//for _ in K {
-//         ^
-//solution.swift:11:40: error: value of type '[Int]' has no member 'removedElement'
-//    let removedElement = tempArray.removedElement()
+// 上面程式在找尋二進制表示中的最大二進位間隙（binary gap），但在計算時可能遇到一些問題。程式在碰到每個 "1" 時增加 flag 變數，用來標記是否進入二進位間隙（當 flag 為 1 時），或是已經超過間隙（當 flag 為 2 時）。然而，這個計算方式可能有問題，尤其是在評估連續多個 "1" 的情況下。
 // -----
 
-public func solution2(_ A : inout [Int], _ K : Int) -> [Int] {
+public func solution2(_ N : Int) -> Int {
     // Implement your solution here
-    var tempArray = A
-    for _ in 0...K {
-        let removedElement = tempArray.removeLast()
-        tempArray.insert(removedElement, at: 0)
+    var max = 0
+    var count = 0
+    let binaryString = String(N, radix: 2)
+    var flag = 0
+    var isClose = false
+    for char in binaryString {
+        if char == "1" {
+            flag += 1
+        }
+        if char == "0" && flag == 1 {
+            count += 1
+        }
+        if flag == 2 && count >= 1 && isClose == false {
+            if max < count {
+                max = count
+                isClose = true
+            }
+        }
+        if flag == 3 {
+            flag = 1
+            count = 0
+            isClose = false
+        }
     }
-    return tempArray
+    return max
 }
 
 // -----
-// 上面程式因從0開始跑，會多跑一圈的 Error
-// -----
-
-public func solution3(_ A : inout [Int], _ K : Int) -> [Int] {
-    // Implement your solution here
-    var tempArray = A
-    for _ in 0..<K {
-        let removedElement = tempArray.removeLast()
-        tempArray.insert(removedElement, at: 0)
-    }
-    return tempArray
-}
-
-// -----
-// Task Score : 87%
-// Correctness: 87%
+// Task Score : 53%
+// Correctness: 53%
 // Performance: Not assessed
 // -----
