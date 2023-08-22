@@ -50,7 +50,7 @@ class User {
 
 class Phone {
   let model: String
-  var owner: User?
+  weak var owner: User?
   
   init(model: String) {
     self.model = model
@@ -73,4 +73,25 @@ class MainViewController: UIViewController {
     let iPhone = Phone(model: "iPhone Xs")
     user.add(phone: iPhone)
   }
+}
+
+class CarrierSubscription {
+  let name: String
+  let countryCode: String
+  let number: String
+  let user: User
+  
+  init(name: String, countryCode: String, number: String, user: User) {
+    self.name = name
+    self.countryCode = countryCode
+    self.number = number
+    self.user = user
+    
+    print("CarrierSubscription \(name) is initialized")
+  }
+  
+  deinit {
+    print("Deallocating CarrierSubscription named: \(name)")
+  }
+  
 }
