@@ -149,6 +149,9 @@ class WWDCGreeting {
   }
   
   lazy var greetingMaker: () -> String = { [weak self] in
-    return "Hello \(self?.who)"
+    guard let self = self else {
+      return "No greeting available."
+    }
+    return "Hello \(self.who)"
   }
 }
