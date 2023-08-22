@@ -148,7 +148,7 @@ class WWDCGreeting {
     self.who = who
   }
   
-  lazy var greetingMaker: () -> String = { [unowned self] in
-    return "Hello \(self.who)"
+  lazy var greetingMaker: () -> String = { [weak self] in
+    return "Hello \(self?.who)"
   }
 }
