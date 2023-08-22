@@ -95,7 +95,7 @@ class CarrierSubscription {
   let name: String
   let countryCode: String
   let number: String
-  let user: User
+  unowned let user: User
   
   init(name: String, countryCode: String, number: String, user: User) {
     self.name = name
