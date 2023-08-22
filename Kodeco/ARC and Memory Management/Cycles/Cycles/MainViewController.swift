@@ -88,6 +88,7 @@ class MainViewController: UIViewController {
       number: "31415926",
       user: user)
     iPhone.provision(carrierSubscription: subscription)
+    print(subscription.completePhoneNumber())
   }
 }
 
@@ -96,6 +97,10 @@ class CarrierSubscription {
   let countryCode: String
   let number: String
   unowned let user: User
+  
+  lazy var completePhoneNumber: () -> String = {
+    self.countryCode + " " + self.number
+  }
   
   init(name: String, countryCode: String, number: String, user: User) {
     self.name = name
