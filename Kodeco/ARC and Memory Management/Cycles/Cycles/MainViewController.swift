@@ -76,6 +76,7 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     runScenario()
+    captureLists()
   }
   
   func runScenario() {
@@ -90,6 +91,19 @@ class MainViewController: UIViewController {
     iPhone.provision(carrierSubscription: subscription)
     print(subscription.completePhoneNumber())
   }
+  
+  func captureLists() {
+    var x = 5
+    var y = 5
+    let someClosure = { [x] in
+      print("someClosure: \(x), \(y)")
+    }
+    x = 6
+    y = 6
+    
+    someClosure() // print 5, 6
+    print("\(x), \(y)")
+  }
 }
 
 class CarrierSubscription {
@@ -98,7 +112,7 @@ class CarrierSubscription {
   let number: String
   unowned let user: User
   
-  lazy var completePhoneNumber: () -> String = {
+  lazy var completePhoneNumber: () -> String = { [unowned self] in
     self.countryCode + " " + self.number
   }
   
