@@ -90,6 +90,15 @@ class MainViewController: UIViewController {
       user: user)
     iPhone.provision(carrierSubscription: subscription)
     print(subscription.completePhoneNumber())
+    
+    let greetingMaker: () -> String
+    
+    do {
+      let mermaid = WWDCGreeting(who: "caffeinated mermaid")
+      greetingMaker = mermaid.greetingMaker
+    }
+    
+    print(greetingMaker()) // TRAP 陷阱？
   }
   
   func captureLists() {
@@ -130,4 +139,16 @@ class CarrierSubscription {
     print("Deallocating CarrierSubscription named: \(name)")
   }
   
+}
+
+class WWDCGreeting {
+  let who: String
+  
+  init(who: String) {
+    self.who = who
+  }
+  
+  lazy var greetingMaker: () -> String = { [unowned self] in
+    return "Hello \(self.who)"
+  }
 }
