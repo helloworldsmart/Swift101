@@ -32,6 +32,7 @@ class User {
   let name: String
   
   private(set) var phones: [Phone] = []
+  var subscriptions: [CarrierSubscription] = []
   
   func add(phone: Phone) {
     phones.append(phone)
@@ -51,6 +52,7 @@ class User {
 class Phone {
   let model: String
   weak var owner: User?
+  var carrierSubscription: CarrierSubscription?
   
   init(model: String) {
     self.model = model
@@ -59,6 +61,14 @@ class Phone {
   
   deinit {
     print("Deallocating phone named: \(model)")
+  }
+  
+  func provision(carrierSubscription: CarrierSubscription) {
+    self.carrierSubscription = carrierSubscription
+  }
+  
+  func decommission() {
+    carrierSubscription = nil
   }
 }
 
@@ -72,6 +82,12 @@ class MainViewController: UIViewController {
     let user = User(name: "John")
     let iPhone = Phone(model: "iPhone Xs")
     user.add(phone: iPhone)
+    let subscription = CarrierSubscription(
+      name: "TelBel",
+      countryCode: "0032",
+      number: "31415926",
+      user: user)
+    iPhone.provision(carrierSubscription: subscription)
   }
 }
 
@@ -87,6 +103,7 @@ class CarrierSubscription {
     self.number = number
     self.user = user
     
+    user.subscriptions.append(self)
     print("CarrierSubscription \(name) is initialized")
   }
   
