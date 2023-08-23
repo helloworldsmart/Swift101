@@ -178,3 +178,41 @@ numStack.push(20)
 numStack.push(30)
 
 let numElement = numStack.pop()
+
+// protocols
+protocol Animal {
+    func makeSound()
+    func move()
+}
+
+struct Dog: Animal {
+    func makeSound() {
+        print("Woof.")
+    }
+
+    func move() {
+        print("walk around like a dog")
+    }
+
+    func bite() {
+        print("bite")
+    }
+}
+
+struct Cat: Animal {
+    func makeSound() {
+        print("Meow.")
+    }
+    
+    func move() {
+        print("walk around like a cat")
+    }
+    
+    func scratch() {
+        print("scratch")
+    }
+}
+
+let animal: Animal = Dog()
+animal.makeSound()
+animal.move()
