@@ -45,3 +45,22 @@ case .rainy(let inchesPerHour):
 case .cloudy(let cloudType, let windSpeed):
     print("It is cloudy; there are \(cloudType) clouds in the sky, and the wind speed is \(windSpeed).")
 }
+
+// Closures
+//myFunction("Hello, World!", closureParameter: {(string) in
+//    print(string)
+//})
+//myFunction("Hello, world!") {(string) in
+//    print(string)s
+//}
+
+// Map
+let mapNumbers = [1, 2, 3, 4, 5]
+let doubledMapNumbers = mapNumbers.map { $0 * 2 }
+print(doubledMapNumbers)
+
+let doubledMapNumbers1 = mapNumbers.map( {(number) in
+    return number * 2
+})
+
+
