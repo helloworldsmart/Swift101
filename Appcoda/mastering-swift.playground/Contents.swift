@@ -63,4 +63,28 @@ let doubledMapNumbers1 = mapNumbers.map( {(number) in
     return number * 2
 })
 
+// Filter
+let filterNumbers = [1, 2, 3, 4, 5]
+let filteredNumbers = filterNumbers.filter { $0 > 3 }
+print(filterNumbers)
+
+// ForEach
+let forEachNumbers = [1, 2, 3, 4, 5]
+forEachNumbers.forEach { print($0) }
+
+// Reduce
+let reduceNumbers = [1, 2, 3, 4, 5]
+let reduceNumber = reduceNumbers.reduce(0) { $0 + $1 }
+print(reduceNumber)
+
+// flatMap
+let flatMapNumbers = [1, nil, 2, nil, 3, nil, 4, nil, 5]
+let flatMappedNumbers = flatMapNumbers.compactMap { $0 }
+print(flatMappedNumbers)
+
+let chainNumbers = [1, nil, 2, nil, 3, nil, 4, nil, 5]
+let doubledNumbersOver8 = chainNumbers.compactMap { $0 }.filter { $0 > 3 }.map { $0 * 2 }
+print(doubledNumbersOver8)
+
+// Generics
 
