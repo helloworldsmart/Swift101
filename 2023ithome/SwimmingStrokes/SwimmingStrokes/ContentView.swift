@@ -8,40 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    var activities = ["ArtisticSwimming", "Backstroke", "Breaststroke", "Butterfly", "Freestyle"]
-
-    @State private var selected = "ArtisticSwimming"
-    @State private var id = 1
-    var colors: [Color] = [.blue, .cyan, .gray, .green, .indigo, .mint, .orange, .pink, .purple, .red]
     var body: some View {
         VStack {
-            Text("Why not try…")
-                    .font(.largeTitle.bold())
-            VStack {
-                Circle()
-                    .fill(colors.randomElement() ?? .blue)
-                    .padding()
-                    .overlay(
-                        Image("\(selected)")
-                            .resizable()
-                            .clipShape(Circle())
-    //                        .font(.system(size: 144))
-    //                        .foregroundColor(.white)
-                    )
-    //
-    //            Text("ArtisticSwimming!")
-    //                .font(.title)
-                Text("\(selected)!")
-                    .font(.title)
-            }
-            Button("Try again") {
-                // change activity
-                withAnimation(.easeInOut(duration: 1)) {
-                    selected = activities.randomElement() ?? "ArtisticSwimming"
-                    id += 1
-                }
-            }
-            .buttonStyle(.borderedProminent)
+            Text("奮泳向前")
+                .font(.system(size: 36))
+
+            Text("今天要揮灑汗水的姿勢")
+                .font(.system(size: 18))
+                .padding(.top, 5)
+
+            Circle()
+                .fill(.blue)
+                .padding()
+                .overlay(
+                    Image("ArtisticSwimming")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .clipShape(Circle())
+                )
+
+            Text("ArtisticSwimming!")
+                .font(.title)
+                .padding(.top, 10)
         }
     }
 }
