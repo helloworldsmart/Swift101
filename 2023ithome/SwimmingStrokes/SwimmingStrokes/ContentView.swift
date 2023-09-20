@@ -11,10 +11,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("奮泳向前")
-                .font(.system(size: 36))
+                .font(.largeTitle.bold())
 
             Text("今天要揮灑汗水的姿勢")
-                .font(.system(size: 18))
+                .font(.title2)
                 .padding(.top, 5)
 
             Circle()
