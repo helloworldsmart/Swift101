@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    var activities: [String] = ["ArtisticSwimming", "Backstroke", "Breaststroke", "Butterfly", "Freestyle"]
+
+    var selected: String = "Freestyle"
+
     var body: some View {
         VStack {
-            Text("奮泳向前")
-                .font(.largeTitle.bold())
-
+            HStack {
+                Text("🏊🏻‍♂️")
+                    .font(.largeTitle.bold())
+                    .padding(.top, 10)
+                Text("奮泳向前")
+                    .font(.largeTitle.bold())
+                ZStack {
+                    Text("🏊🏻‍♂️")
+                        .font(.largeTitle.bold())
+                        .padding(.leading, 10)
+                    Text("🏊🏻‍♂️")
+                        .font(.largeTitle.bold())
+                        .padding(.leading, 20)
+                    Text("🏊🏻‍♂️")
+                        .font(.largeTitle.bold())
+                        .padding(.leading, 30)
+                }
+            }
             Text("今天要揮灑汗水的姿勢")
                 .font(.title2)
                 .padding(.top, 5)
@@ -21,13 +40,13 @@ struct ContentView: View {
                 .fill(.blue)
                 .padding()
                 .overlay(
-                    Image("ArtisticSwimming")
+                    Image("\(selected)")
                         .resizable()
                         .frame(width: 300, height: 300)
                         .clipShape(Circle())
                 )
 
-            Text("ArtisticSwimming!")
+            Text("\(selected)!")
                 .font(.title)
                 .padding(.top, 10)
         }
