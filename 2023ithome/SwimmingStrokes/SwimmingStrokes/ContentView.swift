@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var activities: [String] = ["ArtisticSwimming", "Backstroke", "Breaststroke", "Butterfly", "Freestyle"]
+    var colors: [Color] = [.blue, .cyan, .gray, .green, .indigo, .mint, .orange, .pink, .purple, .red]
 
-    var selected: String = "Freestyle"
+    @State private var selected: String = "Freestyle"
 
     var body: some View {
         VStack {
@@ -49,6 +50,11 @@ struct ContentView: View {
             Text("\(selected)!")
                 .font(.title)
                 .padding(.top, 10)
+
+            Button("Try again") {
+                selected = activities.randomElement() ?? "ArtisticSwimming"
+            }
+            .buttonStyle(.borderedProminent)
         }
     }
 }
