@@ -15,44 +15,55 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("🏊🏻‍♂️")
-                    .font(.largeTitle.bold())
-                    .padding(.top, 10)
-                Text("奮泳向前")
-                    .font(.largeTitle.bold())
-                ZStack {
+            VStack {
+                HStack {
                     Text("🏊🏻‍♂️")
                         .font(.largeTitle.bold())
-                        .padding(.leading, 10)
-                    Text("🏊🏻‍♂️")
+                        .padding(.top, 10)
+                    Text("奮泳向前")
                         .font(.largeTitle.bold())
-                        .padding(.leading, 20)
-                    Text("🏊🏻‍♂️")
-                        .font(.largeTitle.bold())
-                        .padding(.leading, 30)
+                    ZStack {
+                        Text("🏊🏻‍♂️")
+                            .font(.largeTitle.bold())
+                            .padding(.leading, 10)
+                        Text("🏊🏻‍♂️")
+                            .font(.largeTitle.bold())
+                            .padding(.leading, 20)
+                        Text("🏊🏻‍♂️")
+                            .font(.largeTitle.bold())
+                            .padding(.leading, 30)
+                    }
                 }
+                Text("今天要揮灑汗水的姿勢")
+                    .font(.title2)
+                    .padding(.top, 5)
             }
-            Text("今天要揮灑汗水的姿勢")
-                .font(.title2)
-                .padding(.top, 5)
 
-            Circle()
-                .fill(.blue)
-                .padding()
-                .overlay(
-                    Image("\(selected)")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .clipShape(Circle())
-                )
+            Spacer()
+                .frame(height: 30)
 
-            Text("\(selected)!")
-                .font(.title)
-                .padding(.top, 10)
+            VStack {
+                Circle()
+                    .fill(colors.randomElement() ?? .blue)
+                    .padding()
+                    .overlay(
+                        Image("\(selected)")
+                            .resizable()
+                            .frame(width: 300, height: 300)
+                            .clipShape(Circle())
+                    )
+
+                Text("\(selected)!")
+                    .font(.title)
+                    .padding(.top, 10)
+            }
+
+            Spacer()
 
             Button("Try again") {
-                selected = activities.randomElement() ?? "ArtisticSwimming"
+                withAnimation {
+                    selected = activities.randomElement() ?? "ArtisticSwimming"
+                }
             }
             .buttonStyle(.borderedProminent)
         }
