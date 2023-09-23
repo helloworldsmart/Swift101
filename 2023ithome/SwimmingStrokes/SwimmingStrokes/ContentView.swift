@@ -58,7 +58,7 @@ struct ContentView: View {
                     .font(.title)
                     .padding(.top, 10)
             }
-            .transition(.scale)
+            .transition(.slide)
             .id(id)
 
 
