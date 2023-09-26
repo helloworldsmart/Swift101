@@ -11,6 +11,7 @@
 		4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */; };
 		4C57E7FE2AB5D4F600ECB8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */; };
 		4C57E8012AB5D4F600ECB8CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */; };
+		4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimmingStrokesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */,
 				4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */,
+				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */,
 				4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */,
 				4C57E7FA2AB5D4F400ECB8CD /* SwimmingStrokesApp.swift in Sources */,
 			);
