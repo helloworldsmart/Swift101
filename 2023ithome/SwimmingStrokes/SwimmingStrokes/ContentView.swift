@@ -40,7 +40,7 @@ struct ContentView: View {
                     .padding(.top, 5)
             }
             // TODO: 
-//            FlexButton()
+            FlexButton()
             Spacer()
                 .frame(height: 40)
 

@@ -22,7 +22,8 @@ struct FlexButton: View {
                 .clipShape(Circle())
                 .padding(.all, 10)
         }
-        .position(x: screenSize.width - 35, y: screenSize.height - 75)
+        // TODO: 先不要
+//        .position(x: screenSize.width - 35, y: screenSize.height - 75)
     }
     #else
     var body: some View {
