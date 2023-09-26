@@ -11,6 +11,9 @@
 		4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */; };
 		4C57E7FE2AB5D4F600ECB8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */; };
 		4C57E8012AB5D4F600ECB8CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */; };
+		4C80A51C2AC329CE007254C3 /* FLEX in Frameworks */ = {isa = PBXBuildFile; productRef = 4C80A51B2AC329CE007254C3 /* FLEX */; };
+		4C80A51F2AC32E23007254C3 /* LibsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80A51E2AC32E23007254C3 /* LibsManager.swift */; };
+		4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80A5202AC3323E007254C3 /* FlexButton.swift */; };
 		4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +23,8 @@
 		4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C80A51E2AC32E23007254C3 /* LibsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsManager.swift; sourceTree = "<group>"; };
+		4C80A5202AC3323E007254C3 /* FlexButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexButton.swift; sourceTree = "<group>"; };
 		4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimmingStrokesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -28,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C80A51C2AC329CE007254C3 /* FLEX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,9 +59,11 @@
 		4C57E7F82AB5D4F400ECB8CD /* SwimmingStrokes */ = {
 			isa = PBXGroup;
 			children = (
+				4C80A51D2AC32D11007254C3 /* Managers */,
 				4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */,
 				4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */,
 				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
+				4C80A5202AC3323E007254C3 /* FlexButton.swift */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
 			);
@@ -68,6 +76,14 @@
 				4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C80A51D2AC32D11007254C3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4C80A51E2AC32E23007254C3 /* LibsManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +102,9 @@
 			dependencies = (
 			);
 			name = SwimmingStrokes;
+			packageProductDependencies = (
+				4C80A51B2AC329CE007254C3 /* FLEX */,
+			);
 			productName = SwimmingStrokes;
 			productReference = 4C57E7F62AB5D4F400ECB8CD /* SwimmingStrokes.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 4C57E7ED2AB5D4F400ECB8CD;
+			packageReferences = (
+				4C80A51A2AC329CE007254C3 /* XCRemoteSwiftPackageReference "FLEX" */,
+			);
 			productRefGroup = 4C57E7F72AB5D4F400ECB8CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,8 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */,
+				4C80A51F2AC32E23007254C3 /* LibsManager.swift in Sources */,
 				4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */,
 				4C57E7FA2AB5D4F400ECB8CD /* SwimmingStrokesApp.swift in Sources */,
+				4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C80A51A2AC329CE007254C3 /* XCRemoteSwiftPackageReference "FLEX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FLEXTool/FLEX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.22.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C80A51B2AC329CE007254C3 /* FLEX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C80A51A2AC329CE007254C3 /* XCRemoteSwiftPackageReference "FLEX" */;
+			productName = FLEX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4C57E7EE2AB5D4F400ECB8CD /* Project object */;
 }

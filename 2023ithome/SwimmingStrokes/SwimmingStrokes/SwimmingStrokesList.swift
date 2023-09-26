@@ -12,14 +12,44 @@ struct SwimmingStrokesList: View {
 
     var body: some View {
         List {
-            ForEach(1..<8) { index in
-                Image("photo-\(index)")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .cornerRadius(10)
+            ForEach(1..<5) { index in
+                
+                HStack {
+                    Image("photo-\(index)")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 50)
+                        .cornerRadius(10)
+
+                    Text("Photo #\(index)")
+                        .bold()
+                }
+                .swipeActions(edge: .trailing) {
+                    Button {
+                        print("Mark as favorite")
+                    } label: {
+                        Label("Favorite", systemImage: "star")
+                    }
+                    .tint(.yellow)
+                    
+                    Button {
+                        print("Delete")
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                    .tint(.red)
+                }
+                .swipeActions(edge: .leading) {
+                    Button {
+                        print("Share")
+                    } label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                    .tint(.green)
+                }
+
             }
-            .listRowSeparator(.hidden, edges: .bottom)
+            .listRowSeparatorTint(.blue)
         }
         .listStyle(PlainListStyle())
     }

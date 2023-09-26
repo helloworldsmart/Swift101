@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct SwimmingStrokesApp: App {
+    init() {
+        LibsManager.shared.setupLibs()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
