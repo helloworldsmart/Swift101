@@ -15,12 +15,17 @@ struct Trip: Identifiable {
 struct TripsView: View {
     var trips: [Trip]
     var body: some View {
-        List {
-            ForEach(trips) { (trip) in
-//                Text(trip.id.uuidString)
-                Text(trip.trip)
+        NavigationView {
+            List {
+                ForEach(trips) { (trip) in
+                    NavigationLink(destination: TripDetails(trip: trip)) {
+                        Text(trip.trip)
+                    }
+                }
             }
         }
+        .navigationBarTitle(Text("Trips"))
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
