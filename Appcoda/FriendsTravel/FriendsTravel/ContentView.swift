@@ -22,28 +22,56 @@ let places = [
 struct ContentView: View {
 
     var body: some View {
-        VStack {
-            Text(verbatim: "Friends Outings")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundColor(.primary)
-
-            TabView {
-                TripsView(trips: trips).tabItem {
-                    NavigationLink(destination: TripsView(trips: trips)) {
-                        Image(systemName: "car")
-                        Text("Trips") }.tag(1)
+        TabView {
+            Text("Home")
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
-                PlacesView(places: places).tabItem {
-                    NavigationLink(destination: PlacesView(places: places)) {
-                        Image(systemName: "photo")
-                        Text("Places") }.tag(2)
+            Text("Explore")
+                .tabItem {
+                    Label("Explore", systemImage: "network")
                 }
-            }
-
+            Text("Search")
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            Text("Notification")
+                .tabItem {
+                    Label("Notification", systemImage: "bell")
+                }
+            Text("Settings")
+                .tabItem {
+                    Label("Settings", systemImage: "gershape")
+                }
         }
     }
 }
+
+//struct ContentView: View {
+//
+//    var body: some View {
+//        VStack {
+//            Text(verbatim: "Friends Outings")
+//                .font(.largeTitle)
+//                .fontWeight(.heavy)
+//                .foregroundColor(.primary)
+//
+//            TabView {
+//                TripsView(trips: trips).tabItem {
+//                    NavigationLink(destination: TripsView(trips: trips)) {
+//                        Image(systemName: "car")
+//                        Text("Trips") }.tag(1)
+//                }
+//                PlacesView(places: places).tabItem {
+//                    NavigationLink(destination: PlacesView(places: places)) {
+//                        Image(systemName: "photo")
+//                        Text("Places") }.tag(2)
+//                }
+//            }
+//
+//        }
+//    }
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
