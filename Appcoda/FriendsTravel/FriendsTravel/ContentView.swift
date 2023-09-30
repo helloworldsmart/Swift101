@@ -20,43 +20,90 @@ let places = [
 ]
 
 struct ContentView: View {
+    
+    @State private var selectedTabIndex = 0
 
     var body: some View {
-        TabView {
-            Text("Home")
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        TabView(selection: $selectedTabIndex) {
+            VStack {
+                Text("Home")
+                Button("0") {
+                    selectedTabIndex = 0
                 }
-            Text("Explore")
-                .tabItem {
-                    Label("Explore", systemImage: "network")
+                Button("1") {
+                    selectedTabIndex = 1
                 }
-            Text("Search")
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
+                Button("2") {
+                    selectedTabIndex = 2
                 }
-            Text("Notification")
-                .tabItem {
-                    Label("Notification", systemImage: "bell")
+                Button("3") {
+                    selectedTabIndex = 3
                 }
-
-            // The following tabs will be grouped under the More tab.
-            Text("Settings")
-                .tabItem {
-                    Label("Settings", systemImage: "gershape")
+            }
+            .tag(0)
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            
+            VStack {
+                Text("Search")
+                Button("0") {
+                    selectedTabIndex = 0
                 }
-            Text("Extra 1")
-                .tabItem {
-                    Label("Extra 1", systemImage: "1.circle")
+                Button("1") {
+                    selectedTabIndex = 1
                 }
-            Text("Extra 2")
-                .tabItem {
-                    Label("Extra 2", systemImage: "2.circle")
+                Button("2") {
+                    selectedTabIndex = 2
                 }
-            Text("Extra 3")
-                .tabItem {
-                    Label("Extra 3", systemImage: "3.circle")
+                Button("3") {
+                    selectedTabIndex = 3
                 }
+            }
+            .tag(1)
+            .tabItem {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+            
+            VStack {
+                Text("Notification")
+                Button("0") {
+                    selectedTabIndex = 0
+                }
+                Button("1") {
+                    selectedTabIndex = 1
+                }
+                Button("2") {
+                    selectedTabIndex = 2
+                }
+                Button("3") {
+                    selectedTabIndex = 3
+                }
+            }
+            .tag(2)
+            .tabItem {
+                Label("Notification", systemImage: "bell")
+            }
+            
+            VStack {
+                Text("Settings")
+                Button("0") {
+                    selectedTabIndex = 0
+                }
+                Button("1") {
+                    selectedTabIndex = 1
+                }
+                Button("2") {
+                    selectedTabIndex = 2
+                }
+                Button("3") {
+                    selectedTabIndex = 3
+                }
+            }
+            .tag(3)
+            .tabItem {
+                Label("Settings", systemImage: "gearshape")
+            }
         }
     }
 }
