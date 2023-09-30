@@ -14,6 +14,7 @@
 		4C7270382AC7F58F00902C0E /* TripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7270372AC7F58F00902C0E /* TripsView.swift */; };
 		4C72703A2AC7F5B100902C0E /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7270392AC7F5B100902C0E /* PlacesView.swift */; };
 		4C72703C2AC808B300902C0E /* TripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72703B2AC808B300902C0E /* TripDetails.swift */; };
+		4C72703E2AC81F0600902C0E /* TabViewTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72703D2AC81F0600902C0E /* TabViewTutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4C7270372AC7F58F00902C0E /* TripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsView.swift; sourceTree = "<group>"; };
 		4C7270392AC7F5B100902C0E /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		4C72703B2AC808B300902C0E /* TripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetails.swift; sourceTree = "<group>"; };
+		4C72703D2AC81F0600902C0E /* TabViewTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4C7270372AC7F58F00902C0E /* TripsView.swift */,
 				4C7270392AC7F5B100902C0E /* PlacesView.swift */,
 				4C72703B2AC808B300902C0E /* TripDetails.swift */,
+				4C72703D2AC81F0600902C0E /* TabViewTutorial.swift */,
 				4C72702D2AC7F42F00902C0E /* Assets.xcassets */,
 				4C72702F2AC7F42F00902C0E /* Preview Content */,
 			);
@@ -148,6 +151,7 @@
 			files = (
 				4C7270382AC7F58F00902C0E /* TripsView.swift in Sources */,
 				4C72703C2AC808B300902C0E /* TripDetails.swift in Sources */,
+				4C72703E2AC81F0600902C0E /* TabViewTutorial.swift in Sources */,
 				4C72702C2AC7F42E00902C0E /* ContentView.swift in Sources */,
 				4C72703A2AC7F5B100902C0E /* PlacesView.swift in Sources */,
 				4C72702A2AC7F42E00902C0E /* FriendsTravelApp.swift in Sources */,
