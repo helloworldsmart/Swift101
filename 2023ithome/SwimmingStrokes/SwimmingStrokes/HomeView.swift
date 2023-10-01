@@ -74,6 +74,7 @@ struct HomeView: View {
                 }
             }
             .buttonStyle(.borderedProminent)
+            Spacer()
         }
     }
 }

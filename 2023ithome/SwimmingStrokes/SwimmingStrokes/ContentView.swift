@@ -14,6 +14,10 @@ let publicSwimmingPools = [
 
 struct ContentView: View {
     let pools = Bundle.main.decode([PoolsSection].self, from: "pools.json")
+    
+    // TODO:
+    @ObservedObject var settings = GlobalSettings()
+    
     var body: some View {
         VStack {
             Text(verbatim: "Water boys")
@@ -21,32 +25,32 @@ struct ContentView: View {
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
             
-            TabView {
+            TabView(selection: $settings.selectedTabIndex) {
                 HomeView().tabItem {
                     NavigationLink(destination: HomeView()) {
                         Label("Home", systemImage: "house")
-                    }.tag(1)
-                }
+                    }
+                }.tag(1)
                 SwimmingStrokesList().tabItem {
                     NavigationLink(destination: SwimmingStrokesList()) {
                         Label("List", systemImage: "list.clipboard.fill")
-                    }.tag(2)
-                }
+                    }
+                }.tag(2)
                 PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools).tabItem {
                     NavigationLink(destination: PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools)) {
                         Label("Maps", systemImage: "map")
-                    }.tag(3)
-                }
+                    }
+                }.tag(3)
                 SettingsView().tabItem {
                     NavigationLink(destination: SettingsView()) {
                         Label("Settings", systemImage: "gearshape")
-                    }.tag(4)
-                }
-                FourTargetButtonView().tabItem {
-                    NavigationLink(destination: FourTargetButtonView()) {
+                    }
+                }.tag(4)
+                FourTargetButtonView(settings: settings).tabItem {
+                    NavigationLink(destination: FourTargetButtonView(settings: settings)) {
                         Label("hands", systemImage: "hands.sparkles")
-                    }.tag(5)
-                }
+                    }
+                }.tag(5)
             }
         }
     }

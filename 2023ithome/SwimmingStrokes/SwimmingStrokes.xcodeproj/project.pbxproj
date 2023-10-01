@@ -23,6 +23,7 @@
 		4CAFDA0F2AC9A71500ACACA8 /* Pools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */; };
 		4CAFDA112AC9B87B00ACACA8 /* FourTargetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA102AC9B87B00ACACA8 /* FourTargetButtonView.swift */; };
 		4CAFDA132AC9C17B00ACACA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */; };
+		4CAFDA152AC9C50000ACACA8 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA142AC9C50000ACACA8 /* GlobalSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pools.swift; sourceTree = "<group>"; };
 		4CAFDA102AC9B87B00ACACA8 /* FourTargetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourTargetButtonView.swift; sourceTree = "<group>"; };
 		4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4CAFDA142AC9C50000ACACA8 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */,
 				4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */,
 				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
+				4CAFDA142AC9C50000ACACA8 /* GlobalSettings.swift */,
 				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAFDA152AC9C50000ACACA8 /* GlobalSettings.swift in Sources */,
 				4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */,
 				4C80A51F2AC32E23007254C3 /* LibsManager.swift in Sources */,
 				4CAFDA112AC9B87B00ACACA8 /* FourTargetButtonView.swift in Sources */,

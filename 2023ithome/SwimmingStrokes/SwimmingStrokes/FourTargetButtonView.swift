@@ -10,6 +10,8 @@ import SwiftUI
 struct TargetButtonView: View {
     var iconName: String
     var tagNumber: Int
+//    @ObservedObject var settings = GlobalSettings()
+    @ObservedObject var settings: GlobalSettings
     
     var buttonSize: CGFloat {
         return (UIScreen.main.bounds.width - 60) / 2
@@ -18,6 +20,7 @@ struct TargetButtonView: View {
     var body: some View {
         Button(action: {
             // 在此處放置按鈕的動作
+            settings.selectedTabIndex = tagNumber
         }) {
             Image(systemName: iconName)
                 .resizable()  // 使圖標可調整大小
@@ -30,24 +33,25 @@ struct TargetButtonView: View {
 }
 
 struct FourTargetButtonView: View {
+    @ObservedObject var settings: GlobalSettings
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 20) {
-                TargetButtonView(iconName: "house", tagNumber: 1)
-                TargetButtonView(iconName: "list.clipboard.fill", tagNumber: 2)
+                TargetButtonView(iconName: "house", tagNumber: 1, settings: settings)
+                TargetButtonView(iconName: "list.clipboard.fill", tagNumber: 2, settings: settings)
             }
             
             HStack(spacing: 20) {
-                TargetButtonView(iconName: "map", tagNumber: 3)
-                TargetButtonView(iconName: "gearshape", tagNumber: 4)
+                TargetButtonView(iconName: "map", tagNumber: 3, settings: settings)
+                TargetButtonView(iconName: "gearshape", tagNumber: 4, settings: settings)
             }
         }
         .padding(.horizontal, 20)
     }
 }
 
-struct FourTargetButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        FourTargetButtonView()
-    }
-}
+//struct FourTargetButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FourTargetButtonView(settings: <#GlobalSettings#>)
+//    }
+//}
