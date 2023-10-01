@@ -20,7 +20,7 @@ struct PublicSwimmingPoolsView: View {
         NavigationView {
             List {
                 ForEach(publicSwimmingPools) { (item) in
-                    NavigationLink(destination: PublicSwimmingPoolDetailView()) {
+                    NavigationLink(destination: PublicSwimmingPoolDetailView(publicSwimmingPool: item)) {
                         Text(item.name)
                     }
                 }
