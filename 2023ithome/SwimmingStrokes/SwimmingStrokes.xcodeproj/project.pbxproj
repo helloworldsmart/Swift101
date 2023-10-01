@@ -20,6 +20,7 @@
 		4CAFDA052AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */; };
 		4CAFDA0B2AC9951500ACACA8 /* pools.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAFDA0A2AC9951500ACACA8 /* pools.json */; };
 		4CAFDA0D2AC9A38300ACACA8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */; };
+		4CAFDA0F2AC9A71500ACACA8 /* Pools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicSwimmingPoolDetailView.swift; sourceTree = "<group>"; };
 		4CAFDA0A2AC9951500ACACA8 /* pools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pools.json; sourceTree = "<group>"; };
 		4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */,
 				4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */,
 				4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */,
+				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
 				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
@@ -187,6 +190,7 @@
 				4C7270402AC8326500902C0E /* HomeView.swift in Sources */,
 				4C57E7FA2AB5D4F400ECB8CD /* SwimmingStrokesApp.swift in Sources */,
 				4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */,
+				4CAFDA0F2AC9A71500ACACA8 /* Pools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

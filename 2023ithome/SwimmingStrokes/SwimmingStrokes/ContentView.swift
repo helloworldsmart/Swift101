@@ -13,6 +13,7 @@ let publicSwimmingPools = [
 ]
 
 struct ContentView: View {
+    let pools = Bundle.main.decode([PoolsSection].self, from: "pools.json")
     var body: some View {
         VStack {
             Text(verbatim: "Water boys")
@@ -29,12 +30,12 @@ struct ContentView: View {
                 SwimmingStrokesList().tabItem {
                     NavigationLink(destination: SwimmingStrokesList()) {
                         Label("List", systemImage: "list.clipboard.fill")
-                    }.tag(1)
+                    }.tag(2)
                 }
                 PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools).tabItem {
                     NavigationLink(destination: PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools)) {
                         Label("Maps", systemImage: "map")
-                    }.tag(2)
+                    }.tag(3)
                 }
             }
         }
