@@ -64,9 +64,9 @@
 				4C80A51D2AC32D11007254C3 /* Managers */,
 				4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */,
 				4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */,
+				4C72703F2AC8326500902C0E /* HomeView.swift */,
 				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
 				4C80A5202AC3323E007254C3 /* FlexButton.swift */,
-				4C72703F2AC8326500902C0E /* HomeView.swift */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
 			);
