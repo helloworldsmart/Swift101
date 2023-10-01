@@ -19,7 +19,7 @@ struct PublicSwimmingPoolDetailView: View {
         }
     }
 }
-//
+
 struct PublicSwimmingPoolDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PublicSwimmingPoolDetailView(publicSwimmingPool: PublicSwimmingPool(id: UUID(), name: "Glen Innes Pool", photoCredit: "GlenInnesPool", description: "A hub for your family, Glen Innes Pool and Leisure Centre gets you active with multiple pool, fitness and leisure options. Join a group fitness class, learn to swim, have a splash in the water or book your kids into the onsite crèche – the choice is yours!"))

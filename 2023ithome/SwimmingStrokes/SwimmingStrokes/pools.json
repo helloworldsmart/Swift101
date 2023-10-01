@@ -1,0 +1,44 @@
+[
+	{
+        "id": "ae70743c-6053-11ee-8c99-0242ac120002",
+		"name": "Auckland",
+		"items": [
+			{
+                "id": "654ab5fa-6054-11ee-8c99-0242ac120002",
+				"name": "Glen Innes Pool",
+				"photoCredit": "GlenInnesPool",
+				"description": "A hub for your family, Glen Innes Pool and Leisure Centre gets you active with multiple pool, fitness and leisure options. Join a group fitness class, learn to swim, have a splash in the water or book your kids into the onsite crèche – the choice is yours!"
+			},
+			{
+                "id": "654ab910-6054-11ee-8c99-0242ac120002",
+				"name": "Lloyd Elsmore Park Pool",
+				"photoCredit": "LloydElsmoreParkPool",
+				"description": "Lloyd Elsmore Park Pool and Leisure Centre is your local Pakuranga spot for all things active — jump in!"
+			},
+			{
+                "id": "654aba64-6054-11ee-8c99-0242ac120002",
+				"name": "Manurewa Pool",
+				"photoCredit": "ManurewaPoolAndLeisureCentre",
+				"description": "Situated in Mountfort Park, this large busy centre has a range of services to keep you and your whanau active an entertained. Facilities include indoor swimming pools, fitness centre, café, and spaces available for hire for your next event.\nTake the plunge and discover a new watersport. The Manurewa Pool and Leisure Centre is home to Manukau’s first deep water pool. In addition to the 25-metre six lane lap pool, the facility includes a 25-metre graduated leisure pool, teaching pool, and toddlers’ pool.\nThere’s even a spa and sauna, ideal for relaxing tired muscles."
+			},
+			{
+                "id": "654ac018-6054-11ee-8c99-0242ac120002",
+				"name": "Mt Albert Aquatic Centre",
+				"photoCredit": "MtAlbertAquaticCentre",
+				"description": "Mt Albert Aquatic Centre is a local community pool that offers you a heated indoor 25m competition pool, as well as a wave pool, lazy river, spa, sauna, swimming lessons and aqua aerobics."
+			},
+			{
+                "id": "654ac16c-6054-11ee-8c99-0242ac120002",
+				"name": "TepidBaths",
+				"photoCredit": "TepidBaths",
+				"description": "‘The Teps’ is an iconic part of Auckland’s history. Built over 100 years ago and refurbished in 2012, our centre has two pools, spa, steam and sauna facilities and a state-of-the-art fitness centre to help you get active. Whether your goal is general fitness, weight loss, sports training or rehabilitation, the Tepid Baths is here to help you get active your way."
+			},
+			{
+                "id": "654ac310-6054-11ee-8c99-0242ac120002",
+				"name": "West Wave Pool",
+				"photoCredit": "WestWavePool",
+                "description": "West Wave is located right in the heart of Henderson. We have something for everyone, from a hydroslide, diving pool and wave pool through to a steam room, sauna, hydrotherapy pool and 50m lap pool."
+			}
+		]
+	}
+]
