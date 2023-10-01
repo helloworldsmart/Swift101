@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TargetButtonView: View {
     var iconName: String
+    var tagNumber: Int
     
     var buttonSize: CGFloat {
         return (UIScreen.main.bounds.width - 60) / 2
@@ -32,13 +33,13 @@ struct FourTargetButtonView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 20) {
-                TargetButtonView(iconName: "house")
-                TargetButtonView(iconName: "list.clipboard.fill")
+                TargetButtonView(iconName: "house", tagNumber: 1)
+                TargetButtonView(iconName: "list.clipboard.fill", tagNumber: 2)
             }
             
             HStack(spacing: 20) {
-                TargetButtonView(iconName: "map")
-                TargetButtonView(iconName: "gearshape")
+                TargetButtonView(iconName: "map", tagNumber: 3)
+                TargetButtonView(iconName: "gearshape", tagNumber: 4)
             }
         }
         .padding(.horizontal, 20)

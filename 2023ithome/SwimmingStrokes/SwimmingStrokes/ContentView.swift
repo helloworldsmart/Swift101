@@ -37,6 +37,16 @@ struct ContentView: View {
                         Label("Maps", systemImage: "map")
                     }.tag(3)
                 }
+                SettingsView().tabItem {
+                    NavigationLink(destination: SettingsView()) {
+                        Label("Settings", systemImage: "gearshape")
+                    }.tag(4)
+                }
+                FourTargetButtonView().tabItem {
+                    NavigationLink(destination: FourTargetButtonView()) {
+                        Label("hands", systemImage: "hands.sparkles")
+                    }.tag(5)
+                }
             }
         }
     }
