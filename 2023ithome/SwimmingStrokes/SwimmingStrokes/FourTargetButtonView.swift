@@ -50,8 +50,8 @@ struct FourTargetButtonView: View {
     }
 }
 
-//struct FourTargetButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FourTargetButtonView(settings: <#GlobalSettings#>)
-//    }
-//}
+struct FourTargetButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        FourTargetButtonView(settings: GlobalSettings())
+    }
+}
