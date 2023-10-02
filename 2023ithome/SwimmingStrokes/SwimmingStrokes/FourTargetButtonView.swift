@@ -10,7 +10,6 @@ import SwiftUI
 struct TargetButtonView: View {
     var iconName: String
     var tagNumber: Int
-//    @ObservedObject var settings = GlobalSettings()
     @ObservedObject var settings: GlobalSettings
     
     var buttonSize: CGFloat {

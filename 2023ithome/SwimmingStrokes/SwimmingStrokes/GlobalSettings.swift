@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO:
 class GlobalSettings: ObservableObject {
     @Published var selectedTabIndex: Int = 0
 }
