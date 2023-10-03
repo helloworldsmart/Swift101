@@ -77,20 +77,16 @@
 		4C57E7F82AB5D4F400ECB8CD /* SwimmingStrokes */ = {
 			isa = PBXGroup;
 			children = (
-				4C80A51D2AC32D11007254C3 /* Managers */,
 				4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */,
-				4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */,
-				4C72703F2AC8326500902C0E /* HomeView.swift */,
-				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
-				4C80A5202AC3323E007254C3 /* FlexButton.swift */,
-				4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */,
-				4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */,
-				4CAFDA102AC9B87B00ACACA8 /* FourTargetButtonView.swift */,
-				4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */,
-				4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */,
-				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
 				4CAFDA142AC9C50000ACACA8 /* GlobalSettings.swift */,
-				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
+				4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */,
+				4C5A23172ACC389700C68363 /* Home */,
+				4C5A231C2ACC3A5300C68363 /* List */,
+				4C5A23182ACC38C800C68363 /* Maps */,
+				4C5A231A2ACC395900C68363 /* Settings */,
+				4C5A231B2ACC3A0F00C68363 /* Hands */,
+				4C80A51D2AC32D11007254C3 /* Managers */,
+				4C5A23192ACC391000C68363 /* Other */,
 				4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */,
 				4C57E7FF2AB5D4F600ECB8CD /* Preview Content */,
 			);
@@ -103,6 +99,58 @@
 				4C57E8002AB5D4F600ECB8CD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C5A23172ACC389700C68363 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4C72703F2AC8326500902C0E /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4C5A23182ACC38C800C68363 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
+				4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */,
+				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
+				4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		4C5A23192ACC391000C68363 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4C80A5202AC3323E007254C3 /* FlexButton.swift */,
+				4CAFDA0C2AC9A38300ACACA8 /* Helper.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		4C5A231A2ACC395900C68363 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		4C5A231B2ACC3A0F00C68363 /* Hands */ = {
+			isa = PBXGroup;
+			children = (
+				4CAFDA102AC9B87B00ACACA8 /* FourTargetButtonView.swift */,
+			);
+			path = Hands;
+			sourceTree = "<group>";
+		};
+		4C5A231C2ACC3A5300C68363 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		4C80A51D2AC32D11007254C3 /* Managers */ = {
