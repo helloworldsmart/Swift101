@@ -13,7 +13,7 @@ let publicSwimmingPools = [
 ]
 
 struct ContentView: View {
-    let pools = Bundle.main.decode([PoolsSection].self, from: "pools.json")
+    
     
     // TODO:
     @ObservedObject var settings = GlobalSettings()

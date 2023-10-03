@@ -112,10 +112,9 @@
 		4C5A23182ACC38C800C68363 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
-				4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */,
-				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
-				4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */,
+				4C5A231D2ACC3DB000C68363 /* Model */,
+				4C5A231F2ACC3DEA00C68363 /* View */,
+				4C5A231E2ACC3DDF00C68363 /* ViewModel */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -151,6 +150,31 @@
 				4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		4C5A231D2ACC3DB000C68363 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CAFDA0A2AC9951500ACACA8 /* pools.json */,
+				4CAFDA0E2AC9A71500ACACA8 /* Pools.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C5A231E2ACC3DDF00C68363 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C5A231F2ACC3DEA00C68363 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */,
+				4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4C80A51D2AC32D11007254C3 /* Managers */ = {

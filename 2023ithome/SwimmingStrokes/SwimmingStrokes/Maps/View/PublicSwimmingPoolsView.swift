@@ -15,6 +15,7 @@ struct PublicSwimmingPool: Identifiable {
 }
 
 struct PublicSwimmingPoolsView: View {
+    let pools = Bundle.main.decode([PoolsSection].self, from: "pools.json")
     var publicSwimmingPools: [PublicSwimmingPool]
     var body: some View {
         NavigationView {
