@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-let publicSwimmingPools = [
-    PublicSwimmingPool(id: UUID(), name: "Glen Innes Pool", photoCredit: "GlenInnesPool", description: "A hub for your family, Glen Innes Pool and Leisure Centre gets you active with multiple pool, fitness and leisure options. Join a group fitness class, learn to swim, have a splash in the water or book your kids into the onsite crèche – the choice is yours!"),
-    PublicSwimmingPool(id: UUID(), name: "Lloyd Elsmore Park Pool", photoCredit: "LloydElsmoreParkPool", description: "Lloyd Elsmore Park Pool and Leisure Centre is your local Pakuranga spot for all things active — jump in!")
-]
-
 struct ContentView: View {
-    
     
     // TODO:
     @ObservedObject var settings = GlobalSettings()
@@ -36,8 +30,8 @@ struct ContentView: View {
                         Label("List", systemImage: "list.clipboard.fill")
                     }
                 }.tag(2)
-                PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools).tabItem {
-                    NavigationLink(destination: PublicSwimmingPoolsView(publicSwimmingPools: publicSwimmingPools)) {
+                PublicSwimmingPoolsView().tabItem {
+                    NavigationLink(destination: PublicSwimmingPoolsView()) {
                         Label("Maps", systemImage: "map")
                     }
                 }.tag(3)
