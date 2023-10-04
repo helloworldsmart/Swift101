@@ -9,14 +9,34 @@ import SwiftUI
 
 struct PublicSwimmingPoolDetailView: View {
     var publicSwimmingPool: PoolItem
+    
     var body: some View {
-        VStack {
-            Text("Hello, \(publicSwimmingPool.name)")
-            Image(publicSwimmingPool.photoCredit)
-                .resizable()
-                .scaledToFit()
-            Text(publicSwimmingPool.description)
+        ScrollView { // Using a ScrollView in case the content overflows the screen
+            VStack(alignment: .leading, spacing: 20) { // Added spacing for better content separation
+                Text(publicSwimmingPool.name)
+                    .font(.largeTitle) // Larger font for the name
+                    .padding(.top)    // Add padding at the top
+                
+                if let image = UIImage(named: publicSwimmingPool.photoCredit) { // Ensure the image exists before trying to display it
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10) // Rounded corners for a polished look
+                        .shadow(radius: 10) // A subtle shadow for depth
+                }
+                
+                Text("Description")
+                    .font(.headline) // Differentiate the "Description" label
+                
+                Text(publicSwimmingPool.description)
+                    .font(.body)
+                    .padding(.horizontal) // Horizontal padding for better text layout
+                
+                Spacer() // Pushes content to the top
+            }
+            .padding() // Overall padding
         }
+        .navigationBarTitle(Text(publicSwimmingPool.name), displayMode: .inline) // Displays the pool name in the navigation bar
     }
 }
 
