@@ -45,6 +45,7 @@ struct ContentView: View {
         }, label: {
             Image(systemName: symbol)
         })
+        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
     }
     
     var cardRemover: some View {
