@@ -22,14 +22,20 @@ struct ContentView: View {
             }
             
             HStack {
-                Button("Remove Card") {
+                Button(action: {
                     cardCount -= 1
-                }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.minus.fill")
+                })
                 Spacer()
-                Button("Add Card") {
+                Button(action: {
                     cardCount += 1
-                }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.plus.fill")
+                })
             }
+            .imageScale(.large)
+            .font(.largeTitle)
         }
         .padding()
     }
