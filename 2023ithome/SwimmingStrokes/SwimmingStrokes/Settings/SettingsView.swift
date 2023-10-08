@@ -13,7 +13,7 @@ struct SettingsView: View {
     @State private var message: String = ""
     @State private var textStyle = UIFont.TextStyle.body
     @State private var rating: Int = 0
-    @State private var placeholderText: String = "(Optional) Comment your suggestions, idea, etc."
+    @State private var placeholderText: String = "有什麼需要我可以幫忙的呀☕️"
     @State private var isLoading: Bool = false
     var body: some View {
         VStack {

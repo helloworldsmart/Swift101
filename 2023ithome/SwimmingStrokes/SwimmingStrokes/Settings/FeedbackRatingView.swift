@@ -82,7 +82,7 @@ extension View {
                                             .padding()
                                     }
                                 } header: {
-                                    Text("Did you find our app helpful?")
+                                    Text("🦊胡尼克警員在此為妳服務")
                                         .font(.custom("Roboto-Regular", size: 16))
                                         .bold()
                                 }
@@ -90,7 +90,7 @@ extension View {
                                     rating.wrappedValue = 0
                                     isPresented.wrappedValue = false
                                 }) {
-                                    Text("submit")
+                                    Text("📝")
                                         .frame(minWidth: 0, maxWidth: .infinity)
                                         .font(.system(size: 18))
                                         .padding()
@@ -101,7 +101,7 @@ extension View {
                                         )
                                 }
                                 .frame(width: 221)
-                                .background(rating.wrappedValue > 0 ? .red : .gray)
+                                .background(rating.wrappedValue > 0 ? .orange : .gray)
                                 .cornerRadius(25)
                                 .disabled(rating.wrappedValue == 0)
                                 Spacer()
