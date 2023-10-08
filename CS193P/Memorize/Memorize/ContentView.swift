@@ -15,13 +15,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             cards
-            HStack {
-                cardRemover
-                Spacer()
-                cardAdder
-            }
-            .imageScale(.large)
-            .font(.largeTitle)
+            cardCountAdjusters
         }
         .padding()
     }
@@ -33,6 +27,16 @@ struct ContentView: View {
             }
         }
         .foregroundColor(.orange)
+    }
+    
+    var cardCountAdjusters: some View {
+        HStack {
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
     }
     
     var cardRemover: some View {
