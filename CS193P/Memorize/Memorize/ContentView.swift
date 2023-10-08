@@ -13,8 +13,10 @@ struct ContentView: View {
     @State var cardCount: Int = 4
 
     var body: some View {
-        VStack{
-            cards
+        VStack {
+            ScrollView {
+                cards
+            }
             Spacer()
             cardCountAdjusters
         }
