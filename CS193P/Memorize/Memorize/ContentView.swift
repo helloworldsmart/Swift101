@@ -21,7 +21,7 @@ struct ContentView: View {
     }
     
     var cards: some View {
-        return HStack {
+        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
             ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index])
             }
