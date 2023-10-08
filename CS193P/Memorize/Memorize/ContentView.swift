@@ -21,7 +21,7 @@ struct ContentView: View {
     }
     
     var cards: some View {
-        HStack {
+        return HStack {
             ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index])
             }
