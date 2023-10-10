@@ -82,7 +82,7 @@ struct SettingsView: View {
             }
         }
         .sheet(isPresented: $isShowPhotoLibrary, content: {
-            ImagePicker(sourceType: .photoLibrary)
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
         })
         .feedbackRatingAlert(isPresented: $showingFeedback,
                              message: $message,
