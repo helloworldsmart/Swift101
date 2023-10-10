@@ -17,6 +17,7 @@
 		4C80A51F2AC32E23007254C3 /* LibsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80A51E2AC32E23007254C3 /* LibsManager.swift */; };
 		4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80A5202AC3323E007254C3 /* FlexButton.swift */; };
 		4C8D8DB12AD5518D00665517 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8D8DB02AD5518D00665517 /* TextView.swift */; };
+		4C8D8DB32AD56D6C00665517 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8D8DB22AD56D6C00665517 /* ImagePicker.swift */; };
 		4C8F0C5E2AC0808500D53336 /* SwimmingStrokesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */; };
 		4CAFDA032AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */; };
 		4CAFDA052AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */; };
@@ -39,6 +40,7 @@
 		4C80A51E2AC32E23007254C3 /* LibsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibsManager.swift; sourceTree = "<group>"; };
 		4C80A5202AC3323E007254C3 /* FlexButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexButton.swift; sourceTree = "<group>"; };
 		4C8D8DB02AD5518D00665517 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		4C8D8DB22AD56D6C00665517 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C8F0C5D2AC0808500D53336 /* SwimmingStrokesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimmingStrokesList.swift; sourceTree = "<group>"; };
 		4CAFDA022AC9665D00ACACA8 /* PublicSwimmingPoolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicSwimmingPoolsView.swift; sourceTree = "<group>"; };
 		4CAFDA042AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicSwimmingPoolDetailView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAFDA122AC9C17B00ACACA8 /* SettingsView.swift */,
+				4C8D8DB22AD56D6C00665517 /* ImagePicker.swift */,
 				4C6CEB4C2ACDB25B00EFE83C /* FeedbackRatingView.swift */,
 				4C8D8DB02AD5518D00665517 /* TextView.swift */,
 			);
@@ -281,6 +284,7 @@
 				4C7270402AC8326500902C0E /* HomeView.swift in Sources */,
 				4C57E7FA2AB5D4F400ECB8CD /* SwimmingStrokesApp.swift in Sources */,
 				4CAFDA132AC9C17B00ACACA8 /* SettingsView.swift in Sources */,
+				4C8D8DB32AD56D6C00665517 /* ImagePicker.swift in Sources */,
 				4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */,
 				4CAFDA0F2AC9A71500ACACA8 /* Pools.swift in Sources */,
 			);
