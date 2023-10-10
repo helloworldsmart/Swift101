@@ -15,6 +15,10 @@ struct SettingsView: View {
     @State private var rating: Int = 0
     @State private var placeholderText: String = "有什麼需要我可以幫忙的呀☕️"
     @State private var isLoading: Bool = false
+    
+    @State private var textViewMessage = ""
+    @State private var textViewTextStyle = UIFont.TextStyle.body
+    
     var body: some View {
         VStack {
             Text("Hello, SettingsView 🚧")
@@ -29,6 +33,8 @@ struct SettingsView: View {
                     } label: {
                         Text("Feedback")
                     }
+                    TextView(text: $textViewMessage, textStyle: $textViewTextStyle)
+                        .padding(.horizontal)
                 }
             }
         }
