@@ -33,8 +33,21 @@ struct SettingsView: View {
                     } label: {
                         Text("Feedback")
                     }
-                    TextView(text: $textViewMessage, textStyle: $textViewTextStyle)
-                        .padding(.horizontal)
+                    ZStack(alignment: .topTrailing) {
+                        TextView(text: $textViewMessage, textStyle: $textViewTextStyle)
+                            .padding(.horizontal)
+                        Button(action: {
+                            self.textViewTextStyle = (self.textViewTextStyle == .body) ? .title1: .body
+                        }) {
+                            Image(systemName: "textformat")
+                                .imageScale(.large)
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.white)
+                                .background(Color.purple)
+                                .clipShape(Circle())
+                        }
+                        .padding()
+                    }
                 }
             }
         }
