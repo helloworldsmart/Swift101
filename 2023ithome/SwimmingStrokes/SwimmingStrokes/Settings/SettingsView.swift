@@ -19,20 +19,27 @@ struct SettingsView: View {
     @State private var textViewMessage = ""
     @State private var textViewTextStyle = UIFont.TextStyle.body
     
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
+    
     var body: some View {
         VStack {
             Text("Hello, SettingsView 🚧")
             Section {
                 HStack{
-                    Image(systemName: "heart.text.square")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                    
-                    Button {
-                        showingFeedback.toggle()
-                    } label: {
-                        Text("Feedback")
+                    Group {
+                        Image(systemName: "heart.text.square")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                        
+                        Button {
+                            showingFeedback.toggle()
+                        } label: {
+                            Text("Feedback")
+                        }
                     }
+                }
+                Group {
                     ZStack(alignment: .topTrailing) {
                         TextView(text: $textViewMessage, textStyle: $textViewTextStyle)
                             .padding(.horizontal)
@@ -49,8 +56,34 @@ struct SettingsView: View {
                         .padding()
                     }
                 }
+                
+                Image(uiImage: self.image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+                
+                Button(action: {
+                    self.isShowPhotoLibrary = true
+                }) {
+                    HStack {
+                        Image(systemName: "photo")
+                            .font(.system(size: 20))
+                        
+                        Text("Photo library")
+                            .font(.headline)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                }
             }
         }
+        .sheet(isPresented: $isShowPhotoLibrary, content: {
+            ImagePicker(sourceType: .photoLibrary)
+        })
         .feedbackRatingAlert(isPresented: $showingFeedback,
                              message: $message,
                              textStyle: $textStyle,
