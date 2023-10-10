@@ -39,6 +39,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                ResourceLinkRow(title: "iOS App Dev Tutorials", webViewUrl: "https://developer.apple.com/tutorials/app-dev-training", isPDF: false)
                 Group {
                     ZStack(alignment: .topTrailing) {
                         TextView(text: $textViewMessage, textStyle: $textViewTextStyle)
@@ -93,6 +94,40 @@ struct SettingsView: View {
             
         }
         
+    }
+}
+
+private struct ResourceLinkRow: View {
+    var title: String
+    var webViewUrl: String
+    var isPDF: Bool
+    @State private var showWebView = false
+    
+    func checkUrl() -> URL {
+        var url = URL(string: webViewUrl)
+        if isPDF {
+            url = Bundle.main.url(forResource: webViewUrl, withExtension: "pdf")
+        }
+        return url!
+    }
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            Button {
+                showWebView.toggle()
+            } label: {
+                Text(title)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 24)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .sheet(isPresented: $showWebView) {
+                WebView(url: checkUrl())
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
