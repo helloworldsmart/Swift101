@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C45FA2B2AD6CD2A0075E66A /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45FA2A2AD6CD2A0075E66A /* CustomViewController.swift */; };
+		4C45FA2D2AD6CD850075E66A /* CustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45FA2C2AD6CD850075E66A /* CustomViewModel.swift */; };
 		4C57E7FA2AB5D4F400ECB8CD /* SwimmingStrokesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */; };
 		4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */; };
 		4C57E7FE2AB5D4F600ECB8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C57E7FD2AB5D4F600ECB8CD /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C45FA2A2AD6CD2A0075E66A /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		4C45FA2C2AD6CD850075E66A /* CustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModel.swift; sourceTree = "<group>"; };
 		4C57E7F62AB5D4F400ECB8CD /* SwimmingStrokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimmingStrokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C57E7F92AB5D4F400ECB8CD /* SwimmingStrokesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimmingStrokesApp.swift; sourceTree = "<group>"; };
 		4C57E7FB2AB5D4F400ECB8CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				4C6CEB4C2ACDB25B00EFE83C /* FeedbackRatingView.swift */,
 				4C8D8DB02AD5518D00665517 /* TextView.swift */,
 				4C8D8DB42AD5825600665517 /* WebView.swift */,
+				4C45FA2A2AD6CD2A0075E66A /* CustomViewController.swift */,
+				4C45FA2C2AD6CD850075E66A /* CustomViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				4CAFDA052AC966F500ACACA8 /* PublicSwimmingPoolDetailView.swift in Sources */,
 				4C6CEB4D2ACDB25B00EFE83C /* FeedbackRatingView.swift in Sources */,
 				4C57E7FC2AB5D4F400ECB8CD /* ContentView.swift in Sources */,
+				4C45FA2B2AD6CD2A0075E66A /* CustomViewController.swift in Sources */,
 				4CAFDA0D2AC9A38300ACACA8 /* Helper.swift in Sources */,
 				4C7270402AC8326500902C0E /* HomeView.swift in Sources */,
 				4C8D8DB52AD5825600665517 /* WebView.swift in Sources */,
@@ -291,6 +298,7 @@
 				4C8D8DB32AD56D6C00665517 /* ImagePicker.swift in Sources */,
 				4C80A5212AC3323E007254C3 /* FlexButton.swift in Sources */,
 				4CAFDA0F2AC9A71500ACACA8 /* Pools.swift in Sources */,
+				4C45FA2D2AD6CD850075E66A /* CustomViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
