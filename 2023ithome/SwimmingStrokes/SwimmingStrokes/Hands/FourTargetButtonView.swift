@@ -34,18 +34,27 @@ struct TargetButtonView: View {
 struct FourTargetButtonView: View {
     @ObservedObject var settings: GlobalSettings
     var body: some View {
-        VStack(spacing: 20) {
-            HStack(spacing: 20) {
-                TargetButtonView(iconName: "house", tagNumber: 1, settings: settings)
-                TargetButtonView(iconName: "list.clipboard.fill", tagNumber: 2, settings: settings)
+        VStack{
+            VStack(spacing: 20) {
+                HStack(spacing: 20) {
+                    TargetButtonView(iconName: "house", tagNumber: 1, settings: settings)
+                    TargetButtonView(iconName: "list.clipboard.fill", tagNumber: 2, settings: settings)
+                }
+                
+                HStack(spacing: 20) {
+                    TargetButtonView(iconName: "map", tagNumber: 3, settings: settings)
+                    TargetButtonView(iconName: "gearshape", tagNumber: 4, settings: settings)
+                }
             }
-            
-            HStack(spacing: 20) {
-                TargetButtonView(iconName: "map", tagNumber: 3, settings: settings)
-                TargetButtonView(iconName: "gearshape", tagNumber: 4, settings: settings)
+            .padding(.horizontal, 20)
+            Button(action: {
+                NotificationCenter.default.post(name: .settings.domainExpansion, object: "簡易領域")
+                print("簡易領域")
+            }) {
+                Text("🫸🏻🫷🏻")
             }
         }
-        .padding(.horizontal, 20)
+
     }
 }
 

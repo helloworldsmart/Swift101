@@ -21,11 +21,19 @@ struct SettingsView: View {
     
     @State private var isShowPhotoLibrary = false
     @State private var image = UIImage()
+    @State private var domainExpansion: String = "No Domain Expansion Yet"
     
     var body: some View {
         VStack {
+            Spacer()
             Text("Hello, SettingsView 🚧")
             Section {
+                Text(domainExpansion)
+                    .onReceive(NotificationCenter.default.publisher(for: .settings.domainExpansion)) { (output) in
+                        if let newDomainExpansion = output.object as? String {
+                            self.domainExpansion = newDomainExpansion
+                        }
+                    }
                 HStack{
                     Group {
                         Image(systemName: "heart.text.square")
