@@ -21,9 +21,17 @@ class CustomViewController: UIViewController, CustomViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel.delegate = self
+        
+        viewModel.isViewVisibleChanged = { [weak self] in
+            self?.refreshActionButton()
+        }
     }
     
     func updateTitle(title: String) {
         self.titleLabel.text = title
+    }
+    
+    func refreshActionButton() {
+        
     }
 }
