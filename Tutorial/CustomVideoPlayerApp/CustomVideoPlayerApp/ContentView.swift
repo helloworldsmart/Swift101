@@ -14,6 +14,7 @@ struct ContentView: View {
             let safeArea = $0.safeAreaInsets
             
             Home(size: size, safeArea: safeArea)
+                .ignoresSafeArea()
         }
         .preferredColorScheme(.dark)
     }

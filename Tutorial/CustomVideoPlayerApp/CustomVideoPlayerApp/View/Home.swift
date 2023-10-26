@@ -21,7 +21,7 @@ struct Home: View {
     }()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
             
             /// Custom Video Player
@@ -31,7 +31,14 @@ struct Home: View {
                 }
             }
             .frame(width: videoPlayerSize.width, height: videoPlayerSize.height)
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 10) {
+                    
+                }
+            }
         }
+        .padding(.top, safeArea.top)
     }
 }
 
