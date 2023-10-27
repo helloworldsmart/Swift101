@@ -21,6 +21,7 @@ struct Home: View {
     }()
     @State private var showPlayerControls: Bool = false
     @State private var isPlaying: Bool = false
+    @State private var timeoutTask: DispatchWorkItem?
     var body: some View {
         VStack(spacing: 0) {
             let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
@@ -87,6 +88,11 @@ struct Home: View {
                             .fill(.black.opacity(0.35))
                     }
             }
+            /// Disabling Button
+            /// Since we have no action's for it
+            .disabled(true)
+            .opacity(0.6)
+
             
             Button {
                 ///Changing Video Status to Play/Pause based on user input
@@ -127,10 +133,32 @@ struct Home: View {
                             .fill(.black.opacity(0.35))
                     }
             }
+             .disabled(true)
+            .opacity(0.6)
             
         }
         .opacity(showPlayerControls ? 1 : 0)
         .animation(.easeInOut(duration: 0.2), value: showPlayerControls)
+    }
+    
+    /// Timing Out Play back controls
+    /// After some 2-5 Second
+    func timeoutControls() {
+        /// Cancelling Already Pending Timeout Task
+        if let timeoutTask {
+            timeoutTask.cancel()
+        }
+        
+        timeoutTask = .init(block: {
+            withAnimation(.easeInOut(duration: 0.35)) {
+                showPlayerControls = false
+            }
+        })
+        
+        /// Scheduling Task
+        if let timeoutTask {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: timeoutTask)
+        }
     }
 }
 
