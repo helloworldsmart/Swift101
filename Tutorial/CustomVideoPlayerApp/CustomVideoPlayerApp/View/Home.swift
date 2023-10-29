@@ -15,20 +15,24 @@ struct Home: View {
     /// View Properties
     @State private var player: AVPlayer? = {
         /// 方案一
-//        if let bundle = Bundle.main.path(forResource: "Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p", ofType: "mp4") {
-//            return .init(url: URL(filePath: bundle))
-//        }
+        if let bundle = Bundle.main.path(forResource: "Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p", ofType: "mp4") {
+            return .init(url: URL(filePath: bundle))
+        }
         
         /// 方案二
-        if let url = URL(string: "https://rr3---sn-ipoxu-un5es.googlevideo.com/videoplayback?expire=1698433942&ei=Nrc7ZdGIHcnF7OsPicGJsAE&ip=122.116.86.63&id=o-AFEuuQdOSRcDnebR-JvBtkNEaV02NVppj74MH1DSGgm6&itag=22&source=youtube&requiressl=yes&mh=4u&mm=31%2C29&mn=sn-ipoxu-un5es%2Csn-un57sn7y&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=832500&vprv=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=1577.401&lmt=1590100971413549&mt=1698412148&fvip=1&fexp=24007246&beids=24350018&c=ANDROID_EMBEDDED_PLAYER&txp=6316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AGM4YrMwRQIhAJenPOxq3Pr3B5kFMC4Zb5S4SRRQqTEIQ48IQ9pXzOx-AiAaz21klbM9vm8q1RoUZZDRfVekPtatyQ6iu2-4u-xuGw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AK1ks_kwRAIgdv0FpnnTXD98ALimEBuXEHyUMh74VvBVaTmcKDJ0r4wCIE5X-lfi0-5zTPu3vN-OS52vmpJYHL3NvcIiAachYDeg") {
-            return .init(url: url)
-        }
+//        if let url = URL(string: "https://rr3---sn-ipoxu-un5es.googlevideo.com/videoplayback?expire=1698433942&ei=Nrc7ZdGIHcnF7OsPicGJsAE&ip=122.116.86.63&id=o-AFEuuQdOSRcDnebR-JvBtkNEaV02NVppj74MH1DSGgm6&itag=22&source=youtube&requiressl=yes&mh=4u&mm=31%2C29&mn=sn-ipoxu-un5es%2Csn-un57sn7y&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=832500&vprv=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=1577.401&lmt=1590100971413549&mt=1698412148&fvip=1&fexp=24007246&beids=24350018&c=ANDROID_EMBEDDED_PLAYER&txp=6316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AGM4YrMwRQIhAJenPOxq3Pr3B5kFMC4Zb5S4SRRQqTEIQ48IQ9pXzOx-AiAaz21klbM9vm8q1RoUZZDRfVekPtatyQ6iu2-4u-xuGw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AK1ks_kwRAIgdv0FpnnTXD98ALimEBuXEHyUMh74VvBVaTmcKDJ0r4wCIE5X-lfi0-5zTPu3vN-OS52vmpJYHL3NvcIiAachYDeg") {
+//            return .init(url: url)
+//        }
         
         return nil
     }()
     @State private var showPlayerControls: Bool = false
     @State private var isPlaying: Bool = false
     @State private var timeoutTask: DispatchWorkItem?
+    /// Video Seeker Properties
+    @GestureState private var isDragging: Bool = false
+    @State private var progress: CGFloat = 0
+    @State private var lastDraggedProgress: CGFloat = 0
     var body: some View {
         VStack(spacing: 0) {
             let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
@@ -49,6 +53,14 @@ struct Home: View {
                             withAnimation(.easeInOut(duration: 0.35)) {
                                 showPlayerControls.toggle()
                             }
+                            
+                            /// Timing Out Controls, Only If the Video is Playing
+                            if isPlaying {
+                                timeoutControls()
+                            }
+                        }
+                        .overlay(alignment: .bottom) {
+                            VideoSeekerView(videoPlayerSize)
                         }
                 }
             }
@@ -76,6 +88,48 @@ struct Home: View {
             }
         }
         .padding(.top, safeArea.top)
+    }
+    
+    /// Video Seeker View
+    @ViewBuilder
+    func VideoSeekerView(_ videoSize: CGSize) -> some View {
+        ZStack(alignment: .leading) {
+            Rectangle()
+                .fill(.gray)
+            
+            Rectangle()
+                .fill(.red)
+                .frame(width: max(size.width * progress, 0))
+        }
+        .frame(height: 3)
+        .overlay(alignment: .leading) {
+            Circle()
+                .fill(.red)
+                .frame(width: 15, height: 15)
+                /// For More Dragging Space
+                .frame(width: 50, height: 50)
+                .contentShape(Rectangle())
+                /// Moving Along Side With Gesture Progress
+                .offset(x: size.width * progress)
+                .gesture(
+                    DragGesture()
+                        .updating($isDragging, body: { _, out, _ in
+                            out = true
+                        })
+                        .onChanged({ value in
+                            /// Calculating Progress
+                            let translationX: CGFloat = value.translation.width
+                            let calculatedProgress = (translationX / videoSize.width)
+                            
+                            progress = max(min(calculatedProgress, videoSize.width), 0)
+                        })
+                        .onEnded({ value in
+                            /// Storing Last Know Progress
+                            lastDraggedProgress = progress
+                        })
+                )
+                .frame(width: 15, height: 15)
+        }
     }
     
     /// Playback Controls View
@@ -106,9 +160,14 @@ struct Home: View {
                 if isPlaying {
                     /// Pause Video
                     player?.pause()
+                    /// Cancelling Timeout Task when the Video is Paused
+                    if let timeoutTask {
+                        timeoutTask.cancel()
+                    }
                 } else {
                     /// Play Video
                     player?.play()
+                    timeoutControls()
                 }
                 
                 withAnimation(.easeInOut(duration: 0.2)) {
