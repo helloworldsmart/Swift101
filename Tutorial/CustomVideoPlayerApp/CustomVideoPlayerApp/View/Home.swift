@@ -44,7 +44,9 @@ struct Home: View {
                         .overlay {
                             Rectangle()
                                 .fill(.black.opacity(0.4))
-                                .opacity(showPlayerControls ? 1 : 0)
+                                .opacity(showPlayerControls || isDragging ? 1 : 0)
+                                /// Animating Dragging State
+                                .animation(.easeInOut(duration: 0.35), value: isDragging)
                                 .overlay {
                                     PlayBackControls()
                                 }
