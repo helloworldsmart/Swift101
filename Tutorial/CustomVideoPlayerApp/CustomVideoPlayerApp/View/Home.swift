@@ -119,13 +119,19 @@ struct Home: View {
                         .onChanged({ value in
                             /// Calculating Progress
                             let translationX: CGFloat = value.translation.width
-                            let calculatedProgress = (translationX / videoSize.width)
+                            let calculatedProgress = (translationX / videoSize.width) + lastDraggedProgress
                             
                             progress = max(min(calculatedProgress, videoSize.width), 0)
                         })
                         .onEnded({ value in
                             /// Storing Last Know Progress
                             lastDraggedProgress = progress
+                            /// Seeking Video To Dragged Time
+                            if let currentPlayerItem = player?.currentItem {
+                                let totalDuration = currentPlayerItem.duration.seconds
+                                
+                                player?.seek(to: .init(seconds: totalDuration * progress, preferredTimescale: 1))
+                            }
                         })
                 )
                 .frame(width: 15, height: 15)
