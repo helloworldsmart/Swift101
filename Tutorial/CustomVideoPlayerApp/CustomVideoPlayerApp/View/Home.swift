@@ -135,6 +135,8 @@ struct Home: View {
             Circle()
                 .fill(.red)
                 .frame(width: 15, height: 15)
+                /// Showing Drag Knob only When Dragging
+                .scaleEffect(showPlayerControls || isDragging ? 1 : 0.001, anchor: progress * size.width > 15 ? .center: .leading)
                 /// For More Dragging Space
                 .frame(width: 50, height: 50)
                 .contentShape(Rectangle())
@@ -178,6 +180,7 @@ struct Home: View {
                             }
                         })
                 )
+                .offset(x: progress * videoSize.width > 15 ? -15 : 0 )
                 .frame(width: 15, height: 15)
         }
     }
