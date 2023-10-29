@@ -136,7 +136,7 @@ struct Home: View {
                 .fill(.red)
                 .frame(width: 15, height: 15)
                 /// Showing Drag Knob only When Dragging
-                .scaleEffect(showPlayerControls || isDragging ? 1 : 0.001, anchor: progress * size.width > 15 ? .center: .leading)
+                .scaleEffect(showPlayerControls || isDragging ? 1 : 0.001, anchor: progress * size.width > 15 ? .trailing: .leading)
                 /// For More Dragging Space
                 .frame(width: 50, height: 50)
                 .contentShape(Rectangle())
