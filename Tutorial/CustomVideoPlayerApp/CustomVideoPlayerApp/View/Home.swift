@@ -31,6 +31,7 @@ struct Home: View {
     @State private var timeoutTask: DispatchWorkItem?
     /// Video Seeker Properties
     @GestureState private var isDragging: Bool = false
+    @State private var isSeeking: Bool = false
     @State private var progress: CGFloat = 0
     @State private var lastDraggedProgress: CGFloat = 0
     var body: some View {
@@ -100,7 +101,12 @@ struct Home: View {
                     
                     let calculatedProgress = currentDuration / totalDuration
                     
-                    progress = calculatedProgress
+                    // MARK: the old approach
+//                    progress = calculatedProgress
+                    if !isSeeking {
+                        progress = calculatedProgress
+                        lastDraggedProgress = progress
+                    }
                 }
             })
         }
@@ -142,6 +148,7 @@ struct Home: View {
                             let calculatedProgress = (translationX / videoSize.width) + lastDraggedProgress
                             
                             progress = max(min(calculatedProgress, videoSize.width), 0)
+                            isSeeking = true
                         })
                         .onEnded({ value in
                             /// Storing Last Know Progress
@@ -155,6 +162,11 @@ struct Home: View {
                                 /// Re-Scheduling Timeout Task
                                 if isPlaying {
                                     timeoutControls()
+                                }
+                                
+                                /// Release With Slight Delay
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    isSeeking = false
                                 }
                             }
                         })
