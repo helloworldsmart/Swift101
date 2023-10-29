@@ -90,6 +90,20 @@ struct Home: View {
             }
         }
         .padding(.top, safeArea.top)
+        .onAppear {
+            /// Adding Observer to update seeker when the video is Playing
+            player?.addPeriodicTimeObserver(forInterval: .init(seconds: 1, preferredTimescale: 1), queue: .main, using: { time in
+                /// Calculating Video Progress
+                if let currentPlayerItem = player?.currentItem {
+                    let totalDuration = currentPlayerItem.duration.seconds
+                    guard let currentDuration = player?.currentTime().seconds else { return }
+                    
+                    let calculatedProgress = currentDuration / totalDuration
+                    
+                    progress = calculatedProgress
+                }
+            })
+        }
     }
     
     /// Video Seeker View
@@ -119,6 +133,10 @@ struct Home: View {
                             out = true
                         })
                         .onChanged({ value in
+                            /// Cancelling Existing Timeout Task
+                            if let timeoutTask {
+                                timeoutTask.cancel()
+                            }
                             /// Calculating Progress
                             let translationX: CGFloat = value.translation.width
                             let calculatedProgress = (translationX / videoSize.width) + lastDraggedProgress
@@ -133,6 +151,11 @@ struct Home: View {
                                 let totalDuration = currentPlayerItem.duration.seconds
                                 
                                 player?.seek(to: .init(seconds: totalDuration * progress, preferredTimescale: 1))
+                                
+                                /// Re-Scheduling Timeout Task
+                                if isPlaying {
+                                    timeoutControls()
+                                }
                             }
                         })
                 )
@@ -211,8 +234,9 @@ struct Home: View {
             .opacity(0.6)
             
         }
-        .opacity(showPlayerControls ? 1 : 0)
-        .animation(.easeInOut(duration: 0.2), value: showPlayerControls)
+        /// Hiding Controls When Dragging
+        .opacity(showPlayerControls && !isDragging ? 1 : 0)
+        .animation(.easeInOut(duration: 0.2), value: showPlayerControls && !isDragging)
     }
     
     /// Timing Out Play back controls
