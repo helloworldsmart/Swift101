@@ -29,6 +29,7 @@ struct Home: View {
     @State private var showPlayerControls: Bool = false
     @State private var isPlaying: Bool = false
     @State private var timeoutTask: DispatchWorkItem?
+    @State private var isFinishedPlaying: Bool = false
     /// Video Seeker Properties
     @GestureState private var isDragging: Bool = false
     @State private var isSeeking: Bool = false
@@ -106,6 +107,12 @@ struct Home: View {
                     if !isSeeking {
                         progress = calculatedProgress
                         lastDraggedProgress = progress
+                    }
+                    
+                    if calculatedProgress == 1 {
+                        /// Video Finished Playing
+                        isFinishedPlaying = true
+                        isPlaying = false
                     }
                 }
             })
@@ -199,6 +206,14 @@ struct Home: View {
 
             
             Button {
+                if isFinishedPlaying {
+                    /// Setting Video to Start and Playing Again
+                    isFinishedPlaying = false
+                    player?.seek(to: .zero)
+                    progress = .zero
+                    lastDraggedProgress = .zero
+                }
+                
                 ///Changing Video Status to Play/Pause based on user input
                 if isPlaying {
                     /// Pause Video
@@ -218,7 +233,8 @@ struct Home: View {
                 }
             } label: {
                 /// Changing Icon based on Video Status
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                /// Changing Icon When Video was Finished Playing
+                Image(systemName: isFinishedPlaying ? "arrow.clockwise" : (isPlaying ? "pause.fill" : "play.fill"))
                     .font(.title)
                     .foregroundColor(.white)
                     .padding(15)
