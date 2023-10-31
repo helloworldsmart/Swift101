@@ -29,7 +29,7 @@ struct DoubleTapSeek: View {
             .overlay {
                 VStack(spacing: 10) {
                     HStack(spacing: 0) {
-                        ForEach(0...2, id: \.self) { index in
+                        ForEach((0...2).reversed(), id: \.self) { index in
                             Image(systemName: "arrowtriangle.backward.fill")
                                 .opacity(showArrows[index] ? 1 : 0.2)
                         }
