@@ -45,7 +45,7 @@ struct DoubleTapSeek: View {
                 .opacity(isTapped ? 1 : 0)
             }
             .contentShape(Rectangle())
-            .onTapGesture {
+            .onTapGesture(count: 2) {
                 withAnimation(.easeInOut(duration: 0.25)) {
                     isTapped = true
                     showArrows[0] = true

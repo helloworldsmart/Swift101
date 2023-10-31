@@ -56,11 +56,15 @@ struct Home: View {
                         .overlay(content: {
                             HStack(spacing: 60) {
                                 DoubleTapSeek {
-                                    
+                                    /// Seeking 15 sec Backward
+                                    let seconds = player.currentTime().seconds - 15
+                                    player.seek(to: .init(seconds: seconds, preferredTimescale: 1))
                                 }
                                 
                                 DoubleTapSeek(isForward: true) {
-                                    
+                                    /// Seeking 15 sec Forward
+                                    let seconds = player.currentTime().seconds + 15
+                                    player.seek(to: .init(seconds: seconds, preferredTimescale: 1))
                                 }
                             }
                         })
