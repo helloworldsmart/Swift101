@@ -185,6 +185,8 @@ struct Home: View {
         }
         .frame(width: thumbSize.width, height: thumbSize.height)
         .opacity(isDragging ? 1 : 0)
+        /// Moving Along side with Gesture
+        .offset(x: progress * (videoSize.width - thumbSize.height))
     }
     
     /// Video Seeker View
