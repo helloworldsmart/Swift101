@@ -14,6 +14,7 @@
 		4C5CEC202AEAAC0A00B66CE4 /* Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4C5CEC1F2AEAAC0A00B66CE4 /* Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p.mp4 */; };
 		4C5CEC242AEAAD4500B66CE4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CEC232AEAAD4500B66CE4 /* Home.swift */; };
 		4C5CEC262AEAB34100B66CE4 /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CEC252AEAB34100B66CE4 /* CustomVideoPlayer.swift */; };
+		4C7F8D292AF1487200AB206F /* CMTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F8D282AF1487200AB206F /* CMTime+Extensions.swift */; };
 		4C81A7AA2AEE509D003DC153 /* DoubleTapSeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81A7A92AEE509D003DC153 /* DoubleTapSeek.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4C5CEC1F2AEAAC0A00B66CE4 /* Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Make a Promise to our Sacred Guardians  Tiaki  Care for New Zealand_1080p.mp4"; sourceTree = "<group>"; };
 		4C5CEC232AEAAD4500B66CE4 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4C5CEC252AEAB34100B66CE4 /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
+		4C7F8D282AF1487200AB206F /* CMTime+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Extensions.swift"; sourceTree = "<group>"; };
 		4C81A7A92AEE509D003DC153 /* DoubleTapSeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeek.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		4C5CEC212AEAAD0500B66CE4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C7F8D282AF1487200AB206F /* CMTime+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7F8D292AF1487200AB206F /* CMTime+Extensions.swift in Sources */,
 				4C81A7AA2AEE509D003DC153 /* DoubleTapSeek.swift in Sources */,
 				4C5CEC142AEAA98800B66CE4 /* ContentView.swift in Sources */,
 				4C5CEC262AEAB34100B66CE4 /* CustomVideoPlayer.swift in Sources */,

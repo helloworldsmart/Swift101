@@ -170,6 +170,9 @@ struct Home: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: thumbSize.width, height: thumbSize.height)
                     .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                    .overlay(alignment: .bottom, content: {
+                        // TODO:
+                    })
                     .overlay {
                         RoundedRectangle(cornerRadius: 15, style: .continuous)
                             .stroke(.white, lineWidth: 2)
