@@ -35,6 +35,10 @@ struct Home: View {
     @State private var isSeeking: Bool = false
     @State private var progress: CGFloat = 0
     @State private var lastDraggedProgress: CGFloat = 0
+    @State private var isObserverAdded: Bool = false
+    /// Video Seeker Thumbnails
+    @State private var thumbnailFrames: [UIImage] = []
+    @State private var draggingImage: UIImage?
     var body: some View {
         VStack(spacing: 0) {
             let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
@@ -78,6 +82,9 @@ struct Home: View {
                                 timeoutControls()
                             }
                         }
+                        .overlay(alignment: .leading, content: {
+                            SeekerThumbnailView(videoPlayerSize)
+                        })
                         .overlay(alignment: .bottom) {
                             VideoSeekerView(videoPlayerSize)
                         }
@@ -108,6 +115,7 @@ struct Home: View {
         }
         .padding(.top, safeArea.top)
         .onAppear {
+            guard !isObserverAdded else { return }
             /// Adding Observer to update seeker when the video is Playing
             player?.addPeriodicTimeObserver(forInterval: .init(seconds: 1, preferredTimescale: 1), queue: .main, using: { time in
                 /// Calculating Video Progress
@@ -131,6 +139,20 @@ struct Home: View {
                     }
                 }
             })
+            
+            isObserverAdded = true
+            /// Before Generating Thumbnails, Check if the Video is Loaded
+            if player?.currentItem?.status == .readyToPlay {
+                generateThumbnailFrames()
+            }
+        }
+    }
+    
+    /// Dragging Thumbnail View
+    @ViewBuilder
+    func SeekerThumbnailView(_ videoSize: CGSize) -> some View {
+        ZStack {
+            
         }
     }
     
@@ -173,6 +195,12 @@ struct Home: View {
                             
                             progress = max(min(calculatedProgress, videoSize.width), 0)
                             isSeeking = true
+                            
+                            let dragIndex = Int(progress / 0.01)
+                            /// Checking if FrameThumbnails Contains the Frame
+                            if thumbnailFrames.indices.contains(dragIndex) {
+                                draggingImage = thumbnailFrames[dragIndex]
+                            }
                         })
                         .onEnded({ value in
                             /// Storing Last Know Progress
@@ -302,6 +330,40 @@ struct Home: View {
         /// Scheduling Task
         if let timeoutTask {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: timeoutTask)
+        }
+    }
+    
+    /// Generating Thumbnail Frames
+    func generateThumbnailFrames() {
+        Task.detached {
+            guard let asset = player?.currentItem?.asset else { return }
+            let generator = AVAssetImageGenerator(asset: asset)
+            generator.appliesPreferredTrackTransform = true
+            /// Min Size
+            generator.maximumSize = .init(width: 250, height: 250)
+            
+            do {
+                let totalDuration = try await asset.load(.duration).seconds
+                var frameTimes: [CMTime] = []
+                /// Frame Timings
+                /// 1/0.1 = 100 (Frames)
+                for progress in stride(from: 0, to: 1, by: 0.01) {
+                    let time = CMTime(seconds: progress * totalDuration, preferredTimescale: 1)
+                    frameTimes.append(time)
+                }
+                
+                /// Generating Frame Images
+                for await result in generator.images(for: frameTimes) {
+                    let cgImage = try result.image
+                    /// Adding Frame Image
+                    await MainActor.run(body: {
+                        thumbnailFrames.append(UIImage(cgImage: cgImage))
+                    })
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+
         }
     }
 }
