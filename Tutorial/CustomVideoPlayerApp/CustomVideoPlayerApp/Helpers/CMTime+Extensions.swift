@@ -19,6 +19,6 @@ extension CMTime {
             return String(format: "%d:%02d:%02d", hours, min, sec)
         }
         
-        return String(format: "$02d:%02d", min, sec)
+        return String(format: "%02d:%02d", min, sec)
     }
 }
