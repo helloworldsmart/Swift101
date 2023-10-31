@@ -40,9 +40,12 @@ struct Home: View {
     @State private var thumbnailFrames: [UIImage] = []
     @State private var draggingImage: UIImage?
     @State private var playerStatusObserver: NSKeyValueObservation?
+    /// Rotation Properties
+    @State private var isRotated: Bool = false
     var body: some View {
         VStack(spacing: 0) {
-            let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
+            /// Swapping Size When Rotated
+            let videoPlayerSize: CGSize = .init(width: isRotated ? size.height : size.width, height: isRotated ? size.width : (size.height / 3.5))
             
             /// Custom Video Player
             ZStack {
@@ -83,15 +86,45 @@ struct Home: View {
                                 timeoutControls()
                             }
                         }
-                        .overlay(alignment: .leading, content: {
+                        .overlay(alignment: .bottomLeading, content: {
                             SeekerThumbnailView(videoPlayerSize)
+                                .offset(y: isRotated ? -85 : -60)
                         })
                         .overlay(alignment: .bottom) {
                             VideoSeekerView(videoPlayerSize)
+                                .offset(y: isRotated ? -15 : 0)
                         }
                 }
             }
+            .background(content: {
+                Rectangle()
+                    .fill(.black)
+                    /// Since View is Rotated the Trailing side is Bottom
+                    .padding(.trailing, isRotated ? -safeArea.bottom : 0)
+            })
+            .gesture(
+                DragGesture()
+                    .onEnded({ value in
+                        if -value.translation.height > 100 {
+                            /// Rotate Player
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                isRotated = true
+                            }
+                        } else {
+                            // Go To Normal Position
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                isRotated = false
+                            }
+                        }
+                    })
+            )
             .frame(width: videoPlayerSize.width, height: videoPlayerSize.height)
+            /// To Avoid Other View Expansion Set it's Native View height
+            .frame(width: size.width, height: size.height / 3.5, alignment: .bottomLeading)
+            .offset(y: isRotated ? -((size.width / 2) + safeArea.bottom) : 0)
+            .rotationEffect(.init(degrees: isRotated ? 90 : 0), anchor: .topLeading)
+            /// Making it Tap View
+            .zIndex(10000)
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 10) {
@@ -209,7 +242,7 @@ struct Home: View {
             
             Rectangle()
                 .fill(.red)
-                .frame(width: max(size.width * progress, 0))
+                .frame(width: max(videoSize.width * progress, 0))
         }
         .frame(height: 3)
         .overlay(alignment: .leading) {
@@ -217,12 +250,12 @@ struct Home: View {
                 .fill(.red)
                 .frame(width: 15, height: 15)
                 /// Showing Drag Knob only When Dragging
-                .scaleEffect(showPlayerControls || isDragging ? 1 : 0.001, anchor: progress * size.width > 15 ? .trailing: .leading)
+                .scaleEffect(showPlayerControls || isDragging ? 1 : 0.001, anchor: progress * videoSize.width > 15 ? .trailing: .leading)
                 /// For More Dragging Space
                 .frame(width: 50, height: 50)
                 .contentShape(Rectangle())
                 /// Moving Along Side With Gesture Progress
-                .offset(x: size.width * progress)
+                .offset(x: videoSize.width * progress)
                 .gesture(
                     DragGesture()
                         .updating($isDragging, body: { _, out, _ in
