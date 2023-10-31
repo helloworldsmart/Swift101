@@ -151,9 +151,9 @@ struct Home: View {
     /// Dragging Thumbnail View
     @ViewBuilder
     func SeekerThumbnailView(_ videoSize: CGSize) -> some View {
-        let thumbSize: CGSize = .init(width: 175, height: 120)
+        let thumbSize: CGSize = .init(width: 175, height: 100)
         ZStack {
-            if let draggingImage, isDragging {
+            if let draggingImage {
                 Image(uiImage: draggingImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -173,6 +173,7 @@ struct Home: View {
             }
         }
         .frame(width: thumbSize.width, height: thumbSize.height)
+        .opacity(isDragging ? 1 : 0)
     }
     
     /// Video Seeker View
