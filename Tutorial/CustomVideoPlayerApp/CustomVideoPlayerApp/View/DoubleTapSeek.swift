@@ -17,6 +17,20 @@ struct DoubleTapSeek: View {
             .foregroundColor(.clear)
             .overlay {
                 Circle()
+                    .fill(.black.opacity(0.4))
+                    .scaleEffect(2, anchor: isForward ? .leading : .trailing)
+            }
+            /// Arrows
+            .overlay {
+                VStack(spacing: 10) {
+                    HStack(spacing: 0) {
+                        ForEach(0..<2, id: \.self) { index in
+                            Image(systemName: "arrowtriangle.backward.fill")
+                        }
+                    }
+                    .font(.title)
+                    .rotationEffect(.init(degrees: isForward ? 180 : 0))
+                }
             }
     }
 }
