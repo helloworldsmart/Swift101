@@ -171,7 +171,13 @@ struct Home: View {
                     .frame(width: thumbSize.width, height: thumbSize.height)
                     .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
                     .overlay(alignment: .bottom, content: {
-                        // TODO:
+                        if let currentItem = player?.currentItem {
+                            Text(CMTime(seconds: progress * currentItem.duration.seconds, preferredTimescale: 600).toTimeString())
+                                .font(.callout)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .offset(y: 25)
+                        }
                     })
                     .overlay {
                         RoundedRectangle(cornerRadius: 15, style: .continuous)
