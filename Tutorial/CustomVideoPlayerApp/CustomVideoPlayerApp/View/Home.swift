@@ -39,6 +39,7 @@ struct Home: View {
     /// Video Seeker Thumbnails
     @State private var thumbnailFrames: [UIImage] = []
     @State private var draggingImage: UIImage?
+    @State private var playerStatusObserver: NSKeyValueObservation?
     var body: some View {
         VStack(spacing: 0) {
             let videoPlayerSize: CGSize = .init(width: size.width, height: size.height / 3.5)
@@ -142,9 +143,19 @@ struct Home: View {
             
             isObserverAdded = true
             /// Before Generating Thumbnails, Check if the Video is Loaded
-            if player?.currentItem?.status == .readyToPlay {
-                generateThumbnailFrames()
-            }
+//            if player?.currentItem?.status == .readyToPlay {
+//                generateThumbnailFrames()
+//            }
+            playerStatusObserver = player?.observe(\.status, options: .new, changeHandler: { player, _ in
+                if player.status == .readyToPlay {
+                    print("Ready")
+                    generateThumbnailFrames()
+                }
+            })
+        }
+        .onDisappear {
+            /// Clearing Observers
+            playerStatusObserver?.invalidate()
         }
     }
     
