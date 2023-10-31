@@ -151,9 +151,28 @@ struct Home: View {
     /// Dragging Thumbnail View
     @ViewBuilder
     func SeekerThumbnailView(_ videoSize: CGSize) -> some View {
+        let thumbSize: CGSize = .init(width: 175, height: 120)
         ZStack {
-            
+            if let draggingImage, isDragging {
+                Image(uiImage: draggingImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: thumbSize.width, height: thumbSize.height)
+                    .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+                            .stroke(.white, lineWidth: 2)
+                    }
+            } else {
+                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                    .fill(.black)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+                            .stroke(.white, lineWidth: 2)
+                    }
+            }
         }
+        .frame(width: thumbSize.width, height: thumbSize.height)
     }
     
     /// Video Seeker View
