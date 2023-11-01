@@ -24,6 +24,7 @@ struct DoubleTapSeek: View {
                     .fill(.black.opacity(0.4))
                     .scaleEffect(2, anchor: isForward ? .leading : .trailing)
             }
+            .clipped()
             .opacity(isTapped ? 1 : 0)
             /// Arrows
             .overlay {
