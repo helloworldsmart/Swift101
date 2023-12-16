@@ -82,7 +82,8 @@ class ComicsViewController: UIViewController {
       case .success(let response):
         do {
           // 4
-          print(try response.mapJSON())
+//          print(try response.mapJSON())
+          self.state = .ready(try response.map(MarvelResponse<Comic>.self).data.results)
         } catch {
           self.state = .error
         }
