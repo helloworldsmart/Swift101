@@ -31,6 +31,9 @@ import UIKit
 import Moya
 
 class ComicsViewController: UIViewController {
+  
+  let provider = MoyaProvider<Marvel>()
+  
   // MARK: - View State
   private var state: State = .loading {
     didSet {
@@ -65,7 +68,30 @@ class ComicsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    state = .error
+//    state = .error
+    
+    // 1
+    state = .loading
+    
+    // 2
+    provider.request(.comics) { [weak self] result in
+      guard let self = self else { return }
+      
+      // 3
+      switch result {
+      case .success(let response):
+        do {
+          // 4
+          print(try response.mapJSON())
+        } catch {
+          self.state = .error
+        }
+      case .failure:
+        // 5
+        self.state = .error
+      }
+    }
+    
   }
 }
 
