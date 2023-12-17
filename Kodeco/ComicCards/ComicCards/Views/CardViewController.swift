@@ -1,15 +1,15 @@
 /// Copyright (c) 2018 Razeware LLC
-/// 
+///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -27,26 +27,28 @@
 /// THE SOFTWARE.
 
 import Foundation
-import UIKit
 import Kingfisher
 import Moya
+import UIKit
 
 class CardViewController: UIViewController {
+  private let provider = MoyaProvider<Imgur>()
+  private var uploadResult: UploadResult?
   // - MARK: - Dependencies
   private var comic: Comic?
 
   // - MARK: - Outlets
-  @IBOutlet weak private var lblTitle: UILabel!
-  @IBOutlet weak private var lblDesc: UILabel!
-  @IBOutlet weak private var lblChars: UILabel!
-  @IBOutlet weak private var lblDate: UILabel!
-  @IBOutlet weak private var image: UIImageView!
-  @IBOutlet weak private var card: UIView!
-  @IBOutlet weak private var progressBar: UIProgressView!
-  @IBOutlet weak private var viewUpload: UIView!
+  @IBOutlet private var lblTitle: UILabel!
+  @IBOutlet private var lblDesc: UILabel!
+  @IBOutlet private var lblChars: UILabel!
+  @IBOutlet private var lblDate: UILabel!
+  @IBOutlet private var image: UIImageView!
+  @IBOutlet private var card: UIView!
+  @IBOutlet private var progressBar: UIProgressView!
+  @IBOutlet private var viewUpload: UIView!
 
-  @IBOutlet weak private var btnShare: UIButton!
-  @IBOutlet weak private var btnDelete: UIButton!
+  @IBOutlet private var btnShare: UIButton!
+  @IBOutlet private var btnDelete: UIButton!
 
   private let dateFormatter: DateFormatter = {
     let df = DateFormatter()
@@ -64,27 +66,27 @@ class CardViewController: UIViewController {
 }
 
 // MARK: - Imgur handling
+
 extension CardViewController {
   private func layoutCard(comic: Comic) {
     // 1
     lblTitle.text = comic.title
     lblDesc.text = comic.description ?? "Not available"
-    
+
     // 2
     if comic.characters.items.isEmpty {
       lblChars.text = "No characters"
     } else {
       lblChars.text = comic.characters.items
-                            .map{ $0.name}
-                            .joined(separator: ", ")
+        .map { $0.name }
+        .joined(separator: ", ")
     }
-    
+
     // 3
     lblDate.text = dateFormatter.string(from: comic.onsaleDate)
-    
+
     // 4
     image.kf.setImage(with: comic.thumbnail.url)
-
   }
 
   @IBAction private func uploadCard() {
@@ -95,14 +97,50 @@ extension CardViewController {
     }
 
     progressBar.progress = 0.0
+
+    // 1
+    let card = snapCard()
+
+    // 2
+    provider.request(.upload(card),
+                     // 3
+                     callbackQueue: DispatchQueue.main,
+                     progress: { [weak self] progress in
+                       // 4
+                       self?.progressBar.setProgress(Float(progress.progress), animated: true)
+                     },
+
+                     completion: { [weak self] response in
+                       guard let self = self else { return }
+                       // 5
+                       UIView.animate(withDuration: 0.15) {
+                         self.viewUpload.alpha = 0.0
+                         self.btnShare.alpha = 0.0
+                       }
+                       // 6
+                       switch response {
+                       case .success(let result):
+                         do {
+                           let upload = try result.map(ImgurResponse<UploadResult>.self)
+
+                           self.uploadResult = upload.data
+                           self.btnDelete.alpha = 1.0
+
+                           self.presentShare(image: card, url: upload.data.link)
+                         } catch {
+                           self.presentError()
+                         }
+                       case .failure:
+                         self.presentError()
+                       }
+                     })
   }
 
-  @IBAction private func deleteCard() {
-
-  }
+  @IBAction private func deleteCard() {}
 }
 
 // MARK: - Helpers
+
 extension CardViewController {
   static func instantiate(comic: Comic) -> CardViewController {
     guard let vc = UIStoryboard(name: "Main", bundle: nil)
