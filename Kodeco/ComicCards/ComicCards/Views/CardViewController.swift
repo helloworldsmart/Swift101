@@ -136,7 +136,34 @@ extension CardViewController {
                      })
   }
 
-  @IBAction private func deleteCard() {}
+  @IBAction private func deleteCard() {
+    // 1
+    guard let uploadResult = uploadResult else { return }
+    btnDelete.isEnabled = false
+    
+    // 2
+    provider.request(.delete(uploadResult.deletehash)) { [weak self] response in
+      guard let self = self else { return }
+      
+      let message: String
+      
+      // 3
+      switch response {
+      case .success:
+        message = "Deleted successfully"
+        self.btnDelete.alpha = 0.0
+      case .failure:
+        message = "Failed deleting card! Try again later."
+        self.btnDelete.isEnabled = true
+      }
+      
+      let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Done", style: .cancel))
+      
+      self.present(alert, animated: true, completion: nil)
+    }
+    
+  }
 }
 
 // MARK: - Helpers
