@@ -9,13 +9,14 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    //  Array<String> 跟 [String] 差別
+    let emojis: [String] = ["👻", "🎃", "🕷️", "😈"]
+    
     var body: some View {
         HStack {
-            let emojis: Array<String> = ["👻", "🎃", "🕷️", "😈"]
-            CardView(content: emojis[0], isFaceUp: false)
-            CardView(content: emojis[1])
-            CardView(content: emojis[2], isFaceUp: true)
-            CardView(content: emojis[3], isFaceUp: true)
+            ForEach(0..<4, id: \.self) { index in
+                CardView(content: emojis[index])
+            }
         }
         .foregroundColor(.orange)
         .padding()
