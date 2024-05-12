@@ -10,11 +10,11 @@ import SwiftData
 
 struct ContentView: View {
     //  Array<String> 跟 [String] 差別
-    let emojis: [String] = ["👻", "🎃", "🕷️", "😈"]
+    let emojis: [String] = ["👻", "🎃", "🕷️", "😈", "😈"]
     
     var body: some View {
         HStack {
-            ForEach(0..<4, id: \.self) { index in
+            ForEach(emojis.indices, id: \.self) { index in
                 CardView(content: emojis[index])
             }
         }
