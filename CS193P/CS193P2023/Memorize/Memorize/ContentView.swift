@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     //  Array<String> 跟 [String] 差別
-    let emojis: [String] = ["👻", "🎃", "🕷️", "😈", "😈"]
+    let emojis: [String] = ["👻", "🎃", "🕷️", "😈", "💀", "🕸️", "🧙🏻", "🙀", "👹", "😱", "☠️", "🍭"]
     
     var body: some View {
         HStack {
