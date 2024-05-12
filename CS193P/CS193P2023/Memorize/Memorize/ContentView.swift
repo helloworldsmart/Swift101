@@ -11,10 +11,11 @@ import SwiftData
 struct ContentView: View {
     var body: some View {
         HStack {
-            CardView(content: "👻", isFaceUp: false)
-            CardView(content: "🎃")
-            CardView(content: "🕷️", isFaceUp: true)
-            CardView(content: "😈", isFaceUp: true)
+            let emojis: Array<String> = ["👻", "🎃", "🕷️", "😈"]
+            CardView(content: emojis[0], isFaceUp: false)
+            CardView(content: emojis[1])
+            CardView(content: emojis[2], isFaceUp: true)
+            CardView(content: emojis[3], isFaceUp: true)
         }
         .foregroundColor(.orange)
         .padding()
